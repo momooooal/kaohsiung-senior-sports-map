@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="高雄銀髮運動地圖網站 — 找到離您近、適合您的運動資源">
+  <title>高雄銀髮運動地圖網站</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">跳至主要內容</a>
+
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <div class="site-branding">
+      <h1 class="site-title">高雄銀髮運動地圖網站</h1>
+      <p class="site-subtitle">找到離您近、適合您的運動資源</p>
+    </div>
+    <div class="font-controls" role="group" aria-label="字體大小調整">
+      <span class="font-label" aria-hidden="true">字體大小</span>
+      <div class="font-buttons">
+        <button id="font-decrease" class="font-btn" aria-label="縮小字體">A－</button>
+        <button id="font-reset" class="font-btn font-btn-active" aria-label="恢復預設字體">100%</button>
+        <button id="font-increase" class="font-btn" aria-label="放大字體">A＋</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="container" role="main">
+
+  <!-- 1. 行政區選擇 -->
+  <section id="district-section" class="section" aria-labelledby="district-heading">
+    <h2 id="district-heading" class="section-title">1. 請選擇您所在的區域</h2>
+    <p class="section-desc">選擇行政區後，即可查看附近的運動中心、公園、學校、課程與運動園區。</p>
+    <div class="district-actions">
+      <button id="all-districts-btn" class="action-btn" data-testid="btn-all-districts">全部行政區</button>
+      <button id="clear-district-btn" class="action-btn action-btn-ghost" data-testid="btn-clear-district">清除選擇</button>
+    </div>
+    <div id="district-buttons" class="district-grid" role="group" aria-label="行政區選擇按鈕">
+      <!-- 由 JS 產生 -->
+    </div>
+  </section>
+
+  <!-- 2. 資源分類 -->
+  <section id="category-section" class="section" aria-labelledby="category-heading">
+    <h2 id="category-heading" class="section-title">2. 您想找哪一種運動資源？</h2>
+    <div class="category-grid" role="group" aria-label="資源分類選擇">
+      <button class="category-btn" data-category="sports-center" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/sports-center.svg" alt=""></span>
+        <span class="cat-name">運動中心</span>
+        <span class="cat-desc">室內運動與專業設施</span>
+      </button>
+      <button class="category-btn" data-category="park" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/park.svg" alt=""></span>
+        <span class="cat-name">公園</span>
+        <span class="cat-desc">散步、健走與戶外活動</span>
+      </button>
+      <button class="category-btn" data-category="school" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/school.svg" alt=""></span>
+        <span class="cat-name">可運動的學校</span>
+        <span class="cat-desc">查詢開放運動場地</span>
+      </button>
+      <button class="category-btn" data-category="course" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/course.svg" alt=""></span>
+        <span class="cat-name">運動課程</span>
+        <span class="cat-desc">常態及系列運動課程</span>
+      </button>
+      <button class="category-btn" data-category="sports-park" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/sports-park.svg" alt=""></span>
+        <span class="cat-name">運動／體育園區</span>
+        <span class="cat-desc">大型場館與多元設施</span>
+      </button>
+      <button class="category-btn category-btn-all" data-category="all" aria-pressed="false">
+        <span class="cat-name">顯示全部</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 3. 搜尋 -->
+  <section id="search-section" class="section" aria-labelledby="search-heading">
+    <h2 id="search-heading" class="section-title">3. 搜尋運動地點</h2>
+    <div class="search-wrapper">
+      <label for="search-input" class="sr-only">搜尋運動資源</label>
+      <div class="search-input-wrap" role="search">
+        <span class="search-icon" aria-hidden="true"><img src="./assets/icons/search.svg" alt=""></span>
+        <input
+          id="search-input"
+          type="search"
+          class="search-input"
+          placeholder="搜尋運動中心、公園、行政區、地址或設施"
+          autocomplete="off"
+          aria-autocomplete="list"
+          aria-controls="search-suggestions"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+        >
+        <button id="search-clear" class="search-clear-btn" aria-label="清除搜尋" hidden>✕</button>
+      </div>
+      <ul id="search-suggestions" class="suggestions-list" role="listbox" aria-label="搜尋建議" hidden></ul>
+    </div>
+  </section>
+
+  <!-- 目前篩選條件 -->
+  <section id="filter-section" class="section filter-section" aria-label="目前篩選條件" hidden>
+    <div class="filter-header">
+      <span class="filter-label">目前查詢：</span>
+      <button id="clear-all-btn" class="clear-all-btn">清除全部條件</button>
+    </div>
+    <div id="filter-tags" class="filter-tags" role="group" aria-label="已選篩選標籤"></div>
+  </section>
+
+  <!-- 結果 -->
+  <section id="results-section" class="section results-section" aria-label="搜尋結果" hidden>
+    <div id="results-count" class="results-count" role="status" aria-live="polite" aria-atomic="true"></div>
+    <div id="results-grid" class="results-grid"></div>
+  </section>
+
+  <!-- 初始提示 -->
+  <section id="prompt-section" class="section prompt-section" aria-label="操作提示">
+    <div class="prompt-box">
+      <p class="prompt-icon" aria-hidden="true">🏃</p>
+      <p class="prompt-title">請從上方選擇行政區或資源類型開始查詢</p>
+      <p class="prompt-sub">也可以直接在搜尋欄輸入關鍵字，找到您想要的運動地點</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+    <p class="footer-name">高雄銀髮運動地圖網站</p>
+    <p>
+      <a href="https://sports.kcg.gov.tw/" target="_blank" rel="noopener noreferrer">
+        高雄市政府運動發展局
+      </a>
+    </p>
+    <p class="footer-copy">© 高雄市政府運動發展局　版權所有</p>
+  </div>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>找不到頁面 — 高雄銀髮運動地圖網站</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .error-page {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .error-code {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .error-msg {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+    }
+    .error-sub {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2rem;
+    }
+    .home-btn {
+      display: inline-block;
+      min-height: 56px;
+      padding: 0.75rem 2rem;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .home-btn:hover { background: var(--color-primary-dark); color: #fff; }
+  </style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <div class="site-branding">
+      <p class="site-title" style="font-size:1.5rem">高雄銀髮運動地圖網站</p>
+    </div>
+  </div>
+</header>
+<main class="container" role="main">
+  <div class="error-page">
+    <div class="error-code">404</div>
+    <p class="error-msg">找不到這個頁面</p>
+    <p class="error-sub">您所尋找的頁面不存在，或已經移除。</p>
+    <a href="./index.html" class="home-btn">返回首頁</a>
+  </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+    <p class="footer-name">高雄銀髮運動地圖網站</p>
+  </div>
+</footer>
+</body>
+</html>
