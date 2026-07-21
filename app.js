@@ -44,47 +44,122 @@ document.addEventListener('DOMContentLoaded', () => {
    Data Loading
    ===================================================== */
 async function loadAllData() {
-  try {
-    const [venues, parks, schools, courses, districts] = await Promise.all([
-      fetchJSON('./data/venues.json'),
-      fetchJSON('./data/parks.json'),
-      fetchJSON('./data/schools.json'),
-      fetchJSON('./data/courses.json'),
-      fetchJSON('./data/districts.json')
-    ]);
+  const sources = [
+    { key: 'venues',    url: './data/venues.json' },
+    { key: 'parks',     url: './data/parks.json' },
+    { key: 'schools',   url: './data/schools.json' },
+    { key: 'courses',   url: './data/courses.json' },
+    { key: 'districts', url: './data/districts.json' }
+  ];
 
-    state.data.venues    = venues    || [];
-    state.data.parks     = parks     || [];
-    state.data.schools   = schools   || [];
-    state.data.courses   = courses   || [];
-    state.data.districts = districts || [];
-    state.loaded = true;
+  const results = await Promise.allSettled(
+    sources.map(source => fetchJSON(source.url))
+  );
 
-    renderDistrictButtons();
-    renderResults();
-  } catch (err) {
-    console.error('資料載入失敗:', err);
-    showDataError();
+  const failed = [];
+  let loadedCount = 0;
+
+  results.forEach((result, index) => {
+    const source = sources[index];
+
+    if (result.status === 'fulfilled') {
+      state.data[source.key] = normalizeCollection(result.value, source.key);
+      loadedCount += 1;
+    } else {
+      state.data[source.key] = [];
+      failed.push({
+        file: source.url,
+        message: result.reason?.message || '未知錯誤'
+      });
+    }
+  });
+
+  if (loadedCount === 0) {
+    state.loaded = false;
+    console.error('所有資料檔案皆載入失敗：', failed);
+    showDataError(failed);
+    return;
   }
+
+  state.loaded = true;
+
+  if (failed.length > 0) {
+    console.warn('部分資料檔案載入失敗，但其他資料仍可使用：', failed);
+  }
+
+  renderDistrictButtons();
+  renderResults();
+}
+
+function normalizeCollection(payload, preferredKey) {
+  if (Array.isArray(payload)) return payload;
+
+  if (!payload || typeof payload !== 'object') return [];
+
+  // 支援 { venues: [...] }、{ parks: [...] } 等包裝格式
+  if (Array.isArray(payload[preferredKey])) return payload[preferredKey];
+
+  // 支援常見包裝格式
+  for (const key of ['data', 'items', 'results', 'records']) {
+    if (Array.isArray(payload[key])) return payload[key];
+  }
+
+  // 若物件內只有一個陣列，也視為資料集合
+  const arrayValue = Object.values(payload).find(value => Array.isArray(value));
+  if (arrayValue) return arrayValue;
+
+  // 支援以 ID 或行政區名稱作為 key 的物件格式
+  const objectValues = Object.values(payload);
+  if (
+    objectValues.length > 0 &&
+    objectValues.every(value => value && typeof value === 'object' && !Array.isArray(value))
+  ) {
+    return objectValues;
+  }
+
+  return [];
 }
 
 async function fetchJSON(url) {
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error(`HTTP ${resp.status} — ${url}`);
-  return resp.json();
+  const resp = await fetch(url, { cache: 'no-store' });
+
+  if (!resp.ok) {
+    throw new Error(`HTTP ${resp.status}：找不到或無法讀取 ${url}`);
+  }
+
+  const rawText = await resp.text();
+
+  try {
+    return JSON.parse(rawText);
+  } catch (error) {
+    throw new Error(`JSON 格式錯誤：${url}（${error.message}）`);
+  }
 }
 
-function showDataError() {
+function showDataError(failedFiles = []) {
   const promptSec = document.getElementById('prompt-section');
-  if (promptSec) {
-    promptSec.hidden = false;
-    promptSec.innerHTML = `
-      <div class="error-state">
-        <p class="error-title">⚠ 資料暫時無法載入</p>
-        <p class="error-desc">請重新整理頁面後再試一次。</p>
-        <button class="reload-btn" onclick="location.reload()">重新整理</button>
-      </div>`;
-  }
+
+  if (!promptSec) return;
+
+  const details = failedFiles.length
+    ? `<ul class="data-error-list">
+        ${failedFiles.map(item =>
+          `<li><code>${esc(item.file)}</code>：${esc(item.message)}</li>`
+        ).join('')}
+       </ul>`
+    : '';
+
+  promptSec.hidden = false;
+  promptSec.innerHTML = `
+    <div class="error-state">
+      <p class="error-title">⚠ 資料暫時無法載入</p>
+      <p class="error-desc">
+        請確認 GitHub 儲存庫中有 <code>data</code> 資料夾，
+        並且五個 JSON 檔名與大小寫完全正確。
+      </p>
+      ${details}
+      <button class="reload-btn" onclick="location.reload()">重新整理</button>
+    </div>`;
 }
 
 /* =====================================================
