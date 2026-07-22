@@ -4,644 +4,808 @@
     "type": "park",
     "district": "左營區",
     "nameZh": "福山公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：高低平台遊戲場、城堡造型遊具、搖搖樂、四人座親子蹺蹺板、兒童遊戲沙坑、山訓區、體健設施；其他設施：遮陽設施、休息區、沖洗區、廁所",
+    "facilities": [
+      "高低平台遊戲場",
+      "城堡造型遊具",
+      "搖搖樂",
+      "四人座親子蹺蹺板",
+      "兒童遊戲沙坑",
+      "山訓區",
+      "體健設施"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區",
+      "沖洗區",
+      "廁所"
+    ]
   },
   {
     "id": "park-zuoying-2",
     "type": "park",
     "district": "左營區",
     "nameZh": "博愛扶輪公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：轉角廣場、體健區、大地谷自然山訓區、休憩棚架、榕樹環形廣場、樹下裸根區天然樹皮、兒童遊戲組、彈性地墊、休憩長椅／靠背椅、混凝土刷毛步道、活動廣場；其他設施：遮陽設施、休息區",
+    "facilities": [
+      "轉角廣場",
+      "體健區",
+      "大地谷自然山訓區",
+      "休憩棚架",
+      "榕樹環形廣場",
+      "樹下裸根區天然樹皮",
+      "兒童遊戲組",
+      "彈性地墊",
+      "休憩長椅／靠背椅",
+      "混凝土刷毛步道",
+      "活動廣場"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區"
+    ]
   },
   {
     "id": "park-zuoying-3",
     "type": "park",
     "district": "左營區",
     "nameZh": "忠言公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：大型車視野死角及內輪差體驗區、安全過馬路教學、行人穿越翻翻牌及交通號誌翻翻牌、地坪彩繪兒童滑步車遊戲場；其他設施：無障礙停車位2格",
+    "facilities": [
+      "大型車視野死角及內輪差體驗區",
+      "安全過馬路教學",
+      "行人穿越翻翻牌及交通號誌翻翻牌",
+      "地坪彩繪兒童滑步車遊戲場"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "無障礙停車位2格"
+    ]
   },
   {
     "id": "park-lingya-1",
     "type": "park",
     "district": "苓雅區",
     "nameZh": "福安公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：松鼠與樹屋；其他設施：遮陽設施、休息區、廁所",
+    "facilities": [
+      "松鼠與樹屋"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區",
+      "廁所"
+    ]
   },
   {
     "id": "park-lingya-2",
     "type": "park",
     "district": "苓雅區",
     "nameZh": "北凱旋公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：組合遊具、盪鞦韆、搖搖馬",
+    "facilities": [
+      "組合遊具",
+      "盪鞦韆",
+      "搖搖馬"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-hunei-1",
     "type": "park",
     "district": "湖內區",
     "nameZh": "公三公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲場、磨石子滑梯、攀岩塊、攀爬繩、鳥巢搖籃、彩繪廣場、體健設施區；其他設施：休息區",
+    "facilities": [
+      "兒童遊戲場",
+      "磨石子滑梯",
+      "攀岩塊",
+      "攀爬繩",
+      "鳥巢搖籃",
+      "彩繪廣場",
+      "體健設施區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "休息區"
+    ]
   },
   {
     "id": "park-cianjhen-1",
     "type": "park",
     "district": "前鎮區",
     "nameZh": "汕頭公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：遊戲沙坑、洗手洗腳池、動物造型溜滑梯、攀爬小丘、三維攀爬網、跳格子、彩色蘑菇墩座、體健設施；其他設施：休息區、沖洗區",
+    "facilities": [
+      "遊戲沙坑",
+      "洗手洗腳池",
+      "動物造型溜滑梯",
+      "攀爬小丘",
+      "三維攀爬網",
+      "跳格子",
+      "彩色蘑菇墩座",
+      "體健設施"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "休息區",
+      "沖洗區"
+    ]
   },
   {
     "id": "park-cianjhen-2",
     "type": "park",
     "district": "前鎮區",
     "nameZh": "盛興公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：平衡敏捷訓練組、成人體健設施區、兒童遊戲場、遮陽設施；其他設施：遮陽設施、休息區、輪椅推車停放區、無障礙廁所",
+    "facilities": [
+      "平衡敏捷訓練組",
+      "成人體健設施區",
+      "兒童遊戲場",
+      "遮陽設施"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區",
+      "輪椅推車停放區",
+      "無障礙廁所"
+    ]
   },
   {
     "id": "park-cianjhen-3",
     "type": "park",
     "district": "前鎮區",
     "nameZh": "星光水岸公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：戲水遊戲區、滑水道、水星之域、水花森林；其他設施：遮陽棚架及休憩座椅、港景鞦韆",
+    "facilities": [
+      "戲水遊戲區",
+      "滑水道",
+      "水星之域",
+      "水花森林"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽棚架及休憩座椅",
+      "港景鞦韆"
+    ]
   },
   {
     "id": "park-fengshan-1",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "衛武營都會公園內共融遊戲場",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：共融式鞦韆、無障礙組合遊具區、緩坡攀爬區、故事屋幼兒沙坑、大型沙坑區、敲打傳聲區、管子山洞、鋼管地景、休憩涼亭、體健設施區；其他設施：遮陽設施、休息區、沖洗區、廁所",
+    "facilities": [
+      "共融式鞦韆",
+      "無障礙組合遊具區",
+      "緩坡攀爬區",
+      "故事屋幼兒沙坑",
+      "大型沙坑區",
+      "敲打傳聲區",
+      "管子山洞",
+      "鋼管地景",
+      "休憩涼亭",
+      "體健設施區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區",
+      "沖洗區",
+      "廁所"
+    ]
   },
   {
     "id": "park-fengshan-2",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "鳳甲公兒8-4",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲場（特色溜滑梯）；其他設施：體健設施",
+    "facilities": [
+      "兒童遊戲場（特色溜滑梯）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "體健設施"
+    ]
   },
   {
     "id": "park-fengshan-3",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "牛寮公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲場（草皮滑坡、搖搖馬）；其他設施：體健設施",
+    "facilities": [
+      "兒童遊戲場（草皮滑坡",
+      "搖搖馬）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "體健設施"
+    ]
   },
   {
     "id": "park-fengshan-4",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "公27公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲場（特色溜滑梯、獨木橋；相關圖片另有搖搖馬、鞦韆）；其他設施：體健設施",
+    "facilities": [
+      "兒童遊戲場（特色溜滑梯",
+      "獨木橋；相關圖片另有搖搖馬",
+      "鞦韆）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "體健設施"
+    ]
   },
   {
     "id": "park-fengshan-5",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "新強公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：注意行人區、連續彎路區、直線區、顛簸區、導覽牌、模擬車道、道路號誌；其他設施：無障礙車位",
+    "facilities": [
+      "注意行人區",
+      "連續彎路區",
+      "直線區",
+      "顛簸區",
+      "導覽牌",
+      "模擬車道",
+      "道路號誌"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "無障礙車位"
+    ]
   },
   {
     "id": "park-fengshan-6",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "自強公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：海船遊具組、轉轉杯、共融鞦韆、平行桿、滑步機、肩關節活動器、腰部按摩器",
+    "facilities": [
+      "海船遊具組",
+      "轉轉杯",
+      "共融鞦韆",
+      "平行桿",
+      "滑步機",
+      "肩關節活動器",
+      "腰部按摩器"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-fengshan-7",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "北門公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲場；其他設施：體健設施",
+    "facilities": [
+      "兒童遊戲場"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "體健設施"
+    ]
   },
   {
     "id": "park-fengshan-8",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "文山公兒4公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：組合遊具、搖搖馬、攀爬網",
+    "facilities": [
+      "組合遊具",
+      "搖搖馬",
+      "攀爬網"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-fengshan-9",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "牛潮埔公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：組合遊具、三人單槓、搖搖馬",
+    "facilities": [
+      "組合遊具",
+      "三人單槓",
+      "搖搖馬"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-fengshan-10",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "國泰公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：組合遊具、攀爬網",
+    "facilities": [
+      "組合遊具",
+      "攀爬網"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-fengshan-11",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "青年公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：大型溜滑梯、攀爬網、三人單槓、搖搖馬",
+    "facilities": [
+      "大型溜滑梯",
+      "攀爬網",
+      "三人單槓",
+      "搖搖馬"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-fengshan-12",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "鳳山公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：大型溜滑梯",
+    "facilities": [
+      "大型溜滑梯"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-fengshan-13",
     "type": "park",
     "district": "鳳山區",
     "nameZh": "中山公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：大型溜滑梯、平衡木",
+    "facilities": [
+      "大型溜滑梯",
+      "平衡木"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-siaogang-1",
     "type": "park",
     "district": "小港區",
     "nameZh": "小港森林公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：遊戲沙坑、洗手洗腳池、磨石子溜滑梯、攀爬坡道、搖搖馬、攀爬架溜滑梯、圓筒溜滑梯、攀爬架、鞦韆；其他設施：遮陽設施、休息區、沖洗區、廁所、育嬰室、小型無障礙車位、無障礙機車位、母嬰親善車位",
+    "facilities": [
+      "遊戲沙坑",
+      "洗手洗腳池",
+      "磨石子溜滑梯",
+      "攀爬坡道",
+      "搖搖馬",
+      "攀爬架溜滑梯",
+      "圓筒溜滑梯",
+      "攀爬架",
+      "鞦韆"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區",
+      "沖洗區",
+      "廁所",
+      "育嬰室",
+      "小型無障礙車位",
+      "無障礙機車位",
+      "母嬰親善車位"
+    ]
   },
   {
     "id": "park-siaogang-2",
     "type": "park",
     "district": "小港區",
     "nameZh": "小港一號公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：入口廣場、坡間遊戲帶、攀爬山遊戲核心區、細礫石坑、地景遊戲區、特色體健設施、共融鞦韆區、園區散步道更新；其他設施：遮陽設施、沖洗區、休息區",
+    "facilities": [
+      "入口廣場",
+      "坡間遊戲帶",
+      "攀爬山遊戲核心區",
+      "細礫石坑",
+      "地景遊戲區",
+      "特色體健設施",
+      "共融鞦韆區",
+      "園區散步道更新"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "沖洗區",
+      "休息區"
+    ]
   },
   {
     "id": "park-siaogang-3",
     "type": "park",
     "district": "小港區",
     "nameZh": "鳳松親子公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：共融擺盪場（鳥巢鞦韆、平板鞦韆）、斜坡活動區（磨石子滑梯、草坡攀爬繩網、彈跳床）；其他設施：特色體健區（單槓、高低槓、平行天梯、爬梯）",
+    "facilities": [
+      "共融擺盪場（鳥巢鞦韆",
+      "平板鞦韆）",
+      "斜坡活動區（磨石子滑梯",
+      "草坡攀爬繩網",
+      "彈跳床）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "特色體健區（單槓",
+      "高低槓",
+      "平行天梯",
+      "爬梯）"
+    ]
   },
   {
     "id": "park-nanzi-1",
     "type": "park",
     "district": "楠梓區",
     "nameZh": "清豐公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：鞦韆組、彈跳床、遊戲沙坑、攀爬轉盤、既有籃球場、既有遊戲組、體健設施；其他設施：遮陽設施、沖洗區、休息區、無障礙停車位",
+    "facilities": [
+      "鞦韆組",
+      "彈跳床",
+      "遊戲沙坑",
+      "攀爬轉盤",
+      "既有籃球場",
+      "既有遊戲組",
+      "體健設施"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "沖洗區",
+      "休息區",
+      "無障礙停車位"
+    ]
   },
   {
     "id": "park-nanzi-2",
     "type": "park",
     "district": "楠梓區",
     "nameZh": "藍田公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：鹽山主塔、多功能旋轉設施、旋轉擺盪設施、沙坑區、鞦韆區、小鹽山遊戲組區、親水區、冒險王區、溜索區、PUSHBIKE區、多功能練習場、多功能廣場",
+    "facilities": [
+      "鹽山主塔",
+      "多功能旋轉設施",
+      "旋轉擺盪設施",
+      "沙坑區",
+      "鞦韆區",
+      "小鹽山遊戲組區",
+      "親水區",
+      "冒險王區",
+      "溜索區",
+      "PUSHBIKE區",
+      "多功能練習場",
+      "多功能廣場"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-nanzi-3",
     "type": "park",
     "district": "楠梓區",
     "nameZh": "右昌森林公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：飛機造型主題遊戲區、飛行員訓練遊戲區（太陽旋轉盤、擺盪鞦韆、彈跳床）、幼幼飛行員遊戲區（沙坑）；其他設施：沖洗區、廁所、休息區",
+    "facilities": [
+      "飛機造型主題遊戲區",
+      "飛行員訓練遊戲區（太陽旋轉盤",
+      "擺盪鞦韆",
+      "彈跳床）",
+      "幼幼飛行員遊戲區（沙坑）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "沖洗區",
+      "廁所",
+      "休息區"
+    ]
   },
   {
     "id": "park-nanzi-4",
     "type": "park",
     "district": "楠梓區",
     "nameZh": "國昌里公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：新設兒童遊戲組、蹺蹺板及旋轉座、共融鞦韆組、攀爬遊戲組、成人體健區；其他設施：遮陽設施、休息區",
+    "facilities": [
+      "新設兒童遊戲組",
+      "蹺蹺板及旋轉座",
+      "共融鞦韆組",
+      "攀爬遊戲組",
+      "成人體健區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區"
+    ]
   },
   {
     "id": "park-nanzi-5",
     "type": "park",
     "district": "楠梓區",
     "nameZh": "享平公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：地景滑水道、戲水河道－水隧道、戲水平台－三花花灑、靜態泡水池、人力水車遊戲平台、戲水平台設施－大水桶衝擊、戲水平台設施－雨傘花灑、戲水平台設施－打水水槍；其他設施：扇形休憩棚架、沖洗更衣區",
+    "facilities": [
+      "地景滑水道",
+      "戲水河道－水隧道",
+      "戲水平台－三花花灑",
+      "靜態泡水池",
+      "人力水車遊戲平台",
+      "戲水平台設施－大水桶衝擊",
+      "戲水平台設施－雨傘花灑",
+      "戲水平台設施－打水水槍"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "扇形休憩棚架",
+      "沖洗更衣區"
+    ]
   },
   {
     "id": "park-nanzi-6",
     "type": "park",
     "district": "楠梓區",
     "nameZh": "後勁公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：熊熊主題遊戲區、玩沙樂園、鞦韆區、體健設施；其他設施：遮陽設施、休息區、廁所",
+    "facilities": [
+      "熊熊主題遊戲區",
+      "玩沙樂園",
+      "鞦韆區",
+      "體健設施"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區",
+      "廁所"
+    ]
   },
   {
     "id": "park-yancheng-1",
     "type": "park",
     "district": "鹽埕區",
     "nameZh": "府北公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲區（共融遊戲區）；其他設施：造型涼亭、帶狀藝術水景",
+    "facilities": [
+      "兒童遊戲區（共融遊戲區）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "造型涼亭",
+      "帶狀藝術水景"
+    ]
   },
   {
     "id": "park-daliao-1",
     "type": "park",
     "district": "大寮區",
     "nameZh": "第81期公10公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲區（鞦韆、彈跳、旋轉）；其他設施：滯洪池",
+    "facilities": [
+      "兒童遊戲區（鞦韆",
+      "彈跳",
+      "旋轉）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "滯洪池"
+    ]
   },
   {
     "id": "park-daliao-2",
     "type": "park",
     "district": "大寮區",
     "nameZh": "公12公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：極限體能挑戰場、滑草坡、磨石子滑梯區",
+    "facilities": [
+      "極限體能挑戰場",
+      "滑草坡",
+      "磨石子滑梯區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-daliao-3",
     "type": "park",
     "district": "大寮區",
     "nameZh": "公13公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：滑梯遊戲區；其他設施：滯洪池",
+    "facilities": [
+      "滑梯遊戲區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "滯洪池"
+    ]
   },
   {
     "id": "park-daliao-4",
     "type": "park",
     "district": "大寮區",
     "nameZh": "公11公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：滑步車道、積木迷宮、遊戲地景；其他設施：體健區",
+    "facilities": [
+      "滑步車道",
+      "積木迷宮",
+      "遊戲地景"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "體健區"
+    ]
   },
   {
     "id": "park-meinong-1",
     "type": "park",
     "district": "美濃區",
     "nameZh": "美濃湖畔特色遊戲場",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：主題高塔遊戲區、共融鞦韆、白玉蘿蔔滑梯、幼兒沙坑、森林原木挑戰區",
+    "facilities": [
+      "主題高塔遊戲區",
+      "共融鞦韆",
+      "白玉蘿蔔滑梯",
+      "幼兒沙坑",
+      "森林原木挑戰區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-gangshan-1",
     "type": "park",
     "district": "岡山區",
     "nameZh": "87期重劃區公5公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲設施環境照（官網未另列設施名稱）；其他設施：寵物運動空間",
+    "facilities": [
+      "兒童遊戲設施環境照（官網未另列設施名稱）"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "寵物運動空間"
+    ]
   },
   {
     "id": "park-gushan-1",
     "type": "park",
     "district": "鼓山區",
     "nameZh": "凹子底森林公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：鳥巢遊戲平台（多種攀爬動線）、彩蛋沙坑、磨石子滑梯、共融遊具組合訓練遊戲場",
+    "facilities": [
+      "鳥巢遊戲平台（多種攀爬動線）",
+      "彩蛋沙坑",
+      "磨石子滑梯",
+      "共融遊具組合訓練遊戲場"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-qishan-1",
     "type": "park",
     "district": "旗山區",
     "nameZh": "洪厝公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：兒童遊戲場",
+    "facilities": [
+      "兒童遊戲場"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": []
   },
   {
     "id": "park-sanmin-1",
     "type": "park",
     "district": "三民區",
     "nameZh": "同盟公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：衫聚時光車、鐵人衫項攀爬架、微形水道及淺水池、水母主題遊戲場、林下樂活體健區；其他設施：遮陽設施、沖洗區、無障礙廁所",
+    "facilities": [
+      "衫聚時光車",
+      "鐵人衫項攀爬架",
+      "微形水道及淺水池",
+      "水母主題遊戲場",
+      "林下樂活體健區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "沖洗區",
+      "無障礙廁所"
+    ]
   },
   {
     "id": "park-sanmin-2",
     "type": "park",
     "district": "三民區",
     "nameZh": "聯興公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：交通訓練場（含模擬加油站）、幼齡滑梯、捕夢攀爬網、雲霄鞦韆、成人體健區；其他設施：遮陽設施、休息區、沖洗區",
+    "facilities": [
+      "交通訓練場（含模擬加油站）",
+      "幼齡滑梯",
+      "捕夢攀爬網",
+      "雲霄鞦韆",
+      "成人體健區"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "遮陽設施",
+      "休息區",
+      "沖洗區"
+    ]
   },
   {
     "id": "park-qiaotou-1",
     "type": "park",
     "district": "橋頭區",
     "nameZh": "公兒10公園",
-    "address": "待補",
-    "summary": "特色公園，適合散步、健走與戶外活動。",
-    "facilities": [],
+    "summary": "園內設施：造型遊戲塔、共融擺盪場；其他設施：社區體健站、休憩棚架區",
+    "facilities": [
+      "造型遊戲塔",
+      "共融擺盪場"
+    ],
     "exerciseTypes": "待補",
-    "seating": "待補",
-    "shade": "待補",
-    "toilet": "待補",
-    "accessible": "待補",
-    "notes": "詳細設施資料待補。"
+    "notes": "",
+    "otherFacilities": [
+      "社區體健站",
+      "休憩棚架區"
+    ]
   }
 ]

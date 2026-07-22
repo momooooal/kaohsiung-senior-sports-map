@@ -340,7 +340,9 @@ function showSuggestions(query) {
   const lq = query.toLowerCase();
   const matches = allSearchable().filter(item =>
     [item.nameZh, item.nameEn, item.district, item.address, item.summary,
-      ...(item.facilities || []), ...(item.seniorBenefits || [])
+      ...(item.facilities || []),
+      ...(item.otherFacilities || []),
+      ...(item.seniorBenefits || [])
     ].some(f => f && String(f).toLowerCase().includes(lq))
   ).slice(0, 8);
 
@@ -512,8 +514,9 @@ function getFiltered() {
     items = items.filter(item =>
       [item.nameZh, item.nameEn, item.district, item.address,
         item.summary, item.phone, item.notes,
-        ...(item.facilities     || []),
-        ...(item.seniorBenefits || [])
+        ...(item.facilities       || []),
+        ...(item.otherFacilities  || []),
+        ...(item.seniorBenefits   || [])
       ].some(f => f && String(f).toLowerCase().includes(lq))
     );
   }
@@ -667,20 +670,27 @@ function accordion(title, items) {
 }
 
 function renderParkCard(p) {
-  const hasAddr = p.address && p.address !== '待補';
+  const insideFacilities = Array.isArray(p.facilities) ? p.facilities : [];
+  const otherFacilities = Array.isArray(p.otherFacilities) ? p.otherFacilities : [];
+
+  const insideText = insideFacilities.length
+    ? insideFacilities.join('、')
+    : '園內設施資料待補';
+
+  const otherBlock = otherFacilities.length
+    ? `<p><strong>其他設施：</strong>${esc(otherFacilities.join('、'))}</p>`
+    : '';
+
   return `
-    <article class="card" id="card-${esc(p.id)}" data-type="park">
+    <article class="card park-card" id="card-${esc(p.id)}" data-type="park">
       <div class="card-header">
         <div class="card-badges"><span class="badge badge-type">公園</span></div>
         <h3 class="card-title">${esc(p.nameZh)}</h3>
         <span class="card-district">📍 ${esc(p.district)}</span>
       </div>
-      <div class="card-summary">特色公園　詳細設施資料待補。</div>
-      <div class="card-meta">
-        <div class="meta-row">
-          <img src="./assets/icons/location.svg" class="meta-icon" alt="地址">
-          <span>${hasAddr ? esc(p.address) : '地址：資料待補'}</span>
-        </div>
+      <div class="park-description">
+        <p><strong>園內設施：</strong>${esc(insideText)}</p>
+        ${otherBlock}
       </div>
     </article>`;
 }
@@ -700,8 +710,8 @@ function renderSchoolCard(s) {
         <p class="school-note">${esc(s.notes || '學校名稱與詳細開放資訊請至教育局查詢。')}</p>
         ${hasUrl ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
            class="card-btn btn-web" style="display:inline-flex;text-decoration:none;align-self:flex-start;">
-          🔍 前往教育局查詢頁面
-        </a>` : `<span class="school-note">教育局查詢網址待補</span>`}
+          🔍 前往可運動學校查詢頁面
+        </a>` : `<span class="school-note">可運動學校查詢網址待補</span>`}
       </div>
     </article>`;
 }

@@ -657,6 +657,28 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
 .accordion-content ul { list-style: disc; padding-left: 1.4rem; }
 .accordion-content li { margin-bottom: .3rem; }
 
+
+/* --- Park description --- */
+.park-description {
+  padding: 1rem 1.4rem 1.25rem;
+  background: var(--color-surface-2);
+  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  font-size: .92rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.park-description strong {
+  color: var(--color-primary-dark);
+}
+
+.park-card .card-header {
+  padding-bottom: 1rem;
+}
+
 /* --- School Card --- */
 .school-info-box {
   padding: 1.1rem 1.4rem 1.4rem;
