@@ -186,6 +186,13 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
 }
 
 /* --- Section titles --- */
+.heading-symbol {
+  display: inline-block;
+  margin-right: .2rem;
+  font-size: .95em;
+  vertical-align: .04em;
+}
+
 .section-title {
   font-size: 1.65rem;
   color: var(--color-primary);
