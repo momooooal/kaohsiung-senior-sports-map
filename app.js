@@ -26,7 +26,7 @@ const CATEGORY_LABELS = {
   'sports-center': '運動中心',
   'park':          '公園',
   'school':        '可運動的學校',
-  'course':        '運動課程',
+  'course':        '運動i臺灣課程',
   'sports-park':   '運動／體育園區',
   'all':           '全部'
 };
@@ -201,11 +201,6 @@ function renderDistrictButtons() {
   if (!container) return;
 
   container.innerHTML = PRIORITY_DISTRICTS.map(name => {
-    const info = state.data.districts.find(d => d.district === name) || {};
-    const parts = [];
-    if (info.sportsCenterCount > 0) parts.push(`運動中心${info.sportsCenterCount}處`);
-    if (info.schoolCount        > 0) parts.push(`學校${info.schoolCount}間`);
-
     const sel = state.selectedDistrict === name;
     return `
       <button
@@ -217,7 +212,6 @@ function renderDistrictButtons() {
       >
         ${sel ? '<span class="district-check" aria-hidden="true">✓</span>' : ''}
         <span class="district-name">${esc(name)}</span>
-        ${parts.length ? `<span class="district-summary">${esc(parts.join('｜'))}</span>` : ''}
       </button>`;
   }).join('');
 
@@ -693,6 +687,7 @@ function renderParkCard(p) {
 
 function renderSchoolCard(s) {
   const url = s.queryUrl || '#school-link-placeholder';
+  const hasUrl = /^https?:\/\//.test(url);
   return `
     <article class="card" id="card-school-${esc(s.district)}" data-type="school">
       <div class="card-header">
@@ -703,21 +698,22 @@ function renderSchoolCard(s) {
       <div class="school-info-box">
         <span class="school-count">${s.count} 間</span>
         <p class="school-note">${esc(s.notes || '學校名稱與詳細開放資訊請至教育局查詢。')}</p>
-        <a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
+        ${hasUrl ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
            class="card-btn btn-web" style="display:inline-flex;text-decoration:none;align-self:flex-start;">
           🔍 前往教育局查詢頁面
-        </a>
+        </a>` : `<span class="school-note">教育局查詢網址待補</span>`}
       </div>
     </article>`;
 }
 
 function renderCourseCard(c) {
   const url = c.url || '#course-link-placeholder';
+  const hasUrl = /^https?:\/\//.test(url);
   return `
     <article class="card" id="card-${esc(c.id)}" data-type="course">
       <div class="card-header">
         <div class="card-badges">
-          <span class="badge badge-type">運動課程</span>
+          <span class="badge badge-type">運動i臺灣課程</span>
           <span class="badge badge-active">運動i臺灣計畫</span>
         </div>
         <h3 class="card-title">${esc(c.nameZh)}</h3>
@@ -725,10 +721,10 @@ function renderCourseCard(c) {
       </div>
       <div class="course-body">
         <p class="course-desc">${esc(c.summary || '簡介內容待補。')}</p>
-        <a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
+        ${hasUrl ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
            class="card-btn btn-web" style="display:inline-flex;text-decoration:none;align-self:flex-start;">
           查看完整課程資訊
-        </a>
+        </a>` : `<span class="course-desc">課程網址待補</span>`}
       </div>
     </article>`;
 }
