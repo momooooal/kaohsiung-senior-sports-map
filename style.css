@@ -308,7 +308,26 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   outline-offset: 1px;
 }
 
-.cat-icon img { width: 2rem; height: 2rem; margin: 0 auto; }
+.cat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+}
+
+.cat-icon img {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto;
+  filter: drop-shadow(0 3px 4px rgba(30,74,32,.12));
+  transition: transform .18s ease;
+}
+
+.category-btn:hover .cat-icon img,
+.category-btn[aria-pressed="true"] .cat-icon img {
+  transform: scale(1.08) rotate(-2deg);
+}
 
 .cat-name {
   font-size: .95rem;
@@ -679,19 +698,6 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   padding-bottom: 1rem;
 }
 
-/* --- School Card --- */
-.school-info-box {
-  padding: 1.1rem 1.4rem 1.4rem;
-  background: var(--color-surface-2);
-  border-top: 1px solid var(--color-border-light);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-.school-count { font-size: 2.2rem; font-weight: 900; color: var(--color-primary); line-height: 1; }
-.school-note { font-size: .88rem; color: var(--color-text-muted); }
-
 /* --- Course Card --- */
 .course-body { padding: 1rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: .75rem; }
 .course-desc { font-size: .9rem; color: var(--color-text-muted); }
@@ -782,21 +788,6 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
 }
 
 /* --- 走跑高雄3.0 --- */
-.run-card-image-wrap {
-  background: #fffaf2;
-  border-bottom: 1px solid var(--color-border-light);
-  padding: .75rem;
-}
-
-.run-card-image {
-  display: block;
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  margin: 0 auto;
-  border-radius: var(--radius-md);
-}
-
 .run-kaohsiung-card .card-facilities {
   padding-top: .75rem;
 }

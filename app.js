@@ -4,7 +4,7 @@
    State
    ===================================================== */
 const state = {
-  data: { venues: [], parks: [], schools: [], courses: [], districts: [] },
+  data: { venues: [], parks: [], courses: [], districts: [] },
   loaded: false,
   selectedDistrict: null,
   selectedCategory: null,
@@ -25,7 +25,6 @@ const FONT_SCALES = [
 const CATEGORY_LABELS = {
   'sports-center': '運動中心',
   'park':          '公園',
-  'school':        '可運動的學校',
   'course':        '運動i臺灣課程',
   'sports-park':   '運動／體育園區',
   'mobile-gym':    '行動健身房巡迴車',
@@ -49,7 +48,6 @@ async function loadAllData() {
   const sources = [
     { key: 'venues',    url: './data/venues.json' },
     { key: 'parks',     url: './data/parks.json' },
-    { key: 'schools',   url: './data/schools.json' },
     { key: 'courses',   url: './data/courses.json' },
     { key: 'districts', url: './data/districts.json' }
   ];
@@ -326,16 +324,10 @@ function setupEventListeners() {
 function allSearchable() {
   const venues  = state.data.venues.map(v => ({ ...v }));
   const parks   = state.data.parks.map(p => ({ ...p, type: 'park' }));
-  const schools = state.data.schools.map(s => ({
-    id: `school-${s.district}`, type: 'school',
-    nameZh: `${s.district}可運動學校`, nameEn: '',
-    district: s.district, address: '', summary: `${s.district}共有${s.count}間可運動的學校`,
-    facilities: []
-  }));
   const courses = state.data.courses.map(c => ({
     ...c, district: '全市', address: '', facilities: []
   }));
-  return [...venues, ...parks, ...schools, ...courses];
+  return [...venues, ...parks, ...courses];
 }
 
 function showSuggestions(query) {
@@ -499,20 +491,6 @@ function getFiltered() {
     });
   }
 
-  // Schools
-  if (showType('school')) {
-    state.data.schools.forEach(s => {
-      if (!matchDistrict(s.district)) return;
-      items.push({
-        ...s,
-        type: 'school',
-        id: `school-${s.district}`,
-        nameZh: `${s.district}可運動學校`,
-        nameEn: ''
-      });
-    });
-  }
-
   // Courses — city-wide; appear regardless of district
   if (showType('course')) {
     state.data.courses.forEach(c => items.push({ ...c, district: '全市' }));
@@ -601,7 +579,6 @@ function renderCard(item) {
     case 'mobile-gym':   return renderMobileGymCard(item);
     case 'run-kaohsiung': return renderRunKaohsiungCard(item);
     case 'park':         return renderParkCard(item);
-    case 'school':       return renderSchoolCard(item);
     case 'course':       return renderCourseCard(item);
     default:             return '';
   }
@@ -723,15 +700,6 @@ function renderRunKaohsiungCard(v) {
 
   return `
     <article class="card run-kaohsiung-card" id="card-${esc(v.id)}" data-type="run-kaohsiung">
-      <div class="run-card-image-wrap">
-        <img
-          src="${v.imageData}"
-          class="run-card-image"
-          alt="走跑高雄3.0活動資訊圖"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
       <div class="card-header">
         <div class="card-badges">
           <span class="badge badge-type">走跑高雄3.0</span>
@@ -792,27 +760,6 @@ function renderParkCard(p) {
       <div class="park-description">
         <p><strong>園內設施：</strong>${esc(insideText)}</p>
         ${otherBlock}
-      </div>
-    </article>`;
-}
-
-function renderSchoolCard(s) {
-  const url = s.queryUrl || '#school-link-placeholder';
-  const hasUrl = /^https?:\/\//.test(url);
-  return `
-    <article class="card" id="card-school-${esc(s.district)}" data-type="school">
-      <div class="card-header">
-        <div class="card-badges"><span class="badge badge-type">可運動的學校</span></div>
-        <h3 class="card-title">${esc(s.district)}可運動學校</h3>
-        <span class="card-district">📍 ${esc(s.district)}</span>
-      </div>
-      <div class="school-info-box">
-        <span class="school-count">${s.count} 間</span>
-        <p class="school-note">${esc(s.notes || '學校名稱與詳細開放資訊請至教育局查詢。')}</p>
-        ${hasUrl ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
-           class="card-btn btn-web" style="display:inline-flex;text-decoration:none;align-self:flex-start;">
-          🔍 前往可運動學校查詢頁面
-        </a>` : `<span class="school-note">可運動學校查詢網址待補</span>`}
       </div>
     </article>`;
 }

@@ -2,10 +2,14 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="高雄銀髮運動地圖網站 — 找到離您近、適合您的運動資源">
   <title>高雄銀髮運動地圖網站</title>
-  <link rel="stylesheet" href="./style.css?v=20260722-5">
+  <link rel="stylesheet" href="./style.css?v=20260722-7">
+  <!-- BUILD: v7-no-school -->
 </head>
 <body>
 
@@ -53,7 +57,7 @@
   <!-- 1. 行政區選擇 -->
   <section id="district-section" class="section" aria-labelledby="district-heading">
     <h2 id="district-heading" class="section-title">1. 請選擇您所在的區域</h2>
-    <p class="section-desc">選擇行政區後，即可查看附近的運動中心、公園、學校、課程、運動園區與巡迴運動資源。</p>
+    <p class="section-desc">選擇行政區後，即可查看附近的運動中心、公園、課程、運動園區與巡迴運動資源。</p>
     <div class="district-actions">
       <button id="all-districts-btn" class="action-btn" data-testid="btn-all-districts">全部行政區</button>
       <button id="clear-district-btn" class="action-btn action-btn-ghost" data-testid="btn-clear-district">清除選擇</button>
@@ -77,11 +81,6 @@
         <span class="cat-name">公園</span>
         <span class="cat-desc">散步、健走與戶外活動</span>
       </button>
-      <button class="category-btn" data-category="school" aria-pressed="false">
-        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/school.svg" alt=""></span>
-        <span class="cat-name">可運動的學校</span>
-        <span class="cat-desc">查詢開放運動場地</span>
-      </button>
       <button class="category-btn" data-category="course" aria-pressed="false">
         <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/course.svg" alt=""></span>
         <span class="cat-name">運動i臺灣課程</span>
@@ -103,6 +102,7 @@
         <span class="cat-desc">健走、跑步與登山集點</span>
       </button>
       <button class="category-btn category-btn-all" data-category="all" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/all-resources.svg" alt=""></span>
         <span class="cat-name">顯示全部</span>
       </button>
     </div>
@@ -173,6 +173,6 @@
   <p class="sr-only">高雄市政府運動發展局版權所有</p>
 </footer>
 
-<script src="./app.js?v=20260722-5"></script>
+<script src="./app.js?v=20260722-7"></script>
 </body>
 </html>

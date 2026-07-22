@@ -6,8 +6,7 @@
     "nameEn": "Cianjin",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 0,
-    "schoolCount": 4
+    "parkCount": 0
   },
   {
     "id": "district-gushan",
@@ -16,8 +15,7 @@
     "nameEn": "Gushan",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 1,
-    "schoolCount": 11
+    "parkCount": 1
   },
   {
     "id": "district-nanzi",
@@ -26,8 +24,7 @@
     "nameEn": "Nanzi",
     "sportsCenterCount": 1,
     "sportsParkCount": 1,
-    "parkCount": 6,
-    "schoolCount": 16
+    "parkCount": 6
   },
   {
     "id": "district-gangshan",
@@ -36,8 +33,7 @@
     "nameEn": "Gangshan",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 1,
-    "schoolCount": 10
+    "parkCount": 1
   },
   {
     "id": "district-zuoying",
@@ -46,8 +42,7 @@
     "nameEn": "Zuoying",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 3,
-    "schoolCount": 22
+    "parkCount": 3
   },
   {
     "id": "district-yancheng",
@@ -56,8 +51,7 @@
     "nameEn": "Yancheng",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 1,
-    "schoolCount": 4
+    "parkCount": 1
   },
   {
     "id": "district-fengshan",
@@ -66,8 +60,7 @@
     "nameEn": "Fengshan",
     "sportsCenterCount": 0,
     "sportsParkCount": 1,
-    "parkCount": 13,
-    "schoolCount": 31
+    "parkCount": 13
   },
   {
     "id": "district-cianjhen",
@@ -76,8 +69,7 @@
     "nameEn": "Cianjhen",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 3,
-    "schoolCount": 22
+    "parkCount": 3
   },
   {
     "id": "district-meinong",
@@ -86,8 +78,7 @@
     "nameEn": "Meinong",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 1,
-    "schoolCount": 12
+    "parkCount": 1
   },
   {
     "id": "district-lingya",
@@ -96,8 +87,7 @@
     "nameEn": "Lingya",
     "sportsCenterCount": 1,
     "sportsParkCount": 2,
-    "parkCount": 2,
-    "schoolCount": 14
+    "parkCount": 2
   },
   {
     "id": "district-daliao",
@@ -106,7 +96,6 @@
     "nameEn": "Daliao",
     "sportsCenterCount": 1,
     "sportsParkCount": 0,
-    "parkCount": 4,
-    "schoolCount": 13
+    "parkCount": 4
   }
 ]
