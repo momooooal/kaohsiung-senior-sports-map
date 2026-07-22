@@ -28,6 +28,8 @@ const CATEGORY_LABELS = {
   'school':        '可運動的學校',
   'course':        '運動i臺灣課程',
   'sports-park':   '運動／體育園區',
+  'mobile-gym':    '行動健身房巡迴車',
+  'run-kaohsiung': '走跑高雄3.0',
   'all':           '全部'
 };
 
@@ -342,7 +344,9 @@ function showSuggestions(query) {
     [item.nameZh, item.nameEn, item.district, item.address, item.summary,
       ...(item.facilities || []),
       ...(item.otherFacilities || []),
-      ...(item.seniorBenefits || [])
+      ...(item.seniorBenefits || []),
+      ...(item.searchKeywords || []),
+      item.dates, item.weekday, item.locationName, item.provider, item.vehicle
     ].some(f => f && String(f).toLowerCase().includes(lq))
   ).slice(0, 8);
 
@@ -469,15 +473,21 @@ function getFiltered() {
 
   const showType = t => !selectedCategory || selectedCategory === t;
   const matchDistrict = d => !selectedDistrict || d === selectedDistrict;
+  const itemMatchesDistrict = item => {
+    if (!selectedDistrict) return true;
+    if (item.allDistricts) return true;
+    if (Array.isArray(item.districts)) return item.districts.includes(selectedDistrict);
+    return item.district === selectedDistrict;
+  };
 
   let items = [];
 
-  // Venues (sports-center + sports-park)
+  // Venue-style resources
+  const venueTypes = ['sports-center', 'sports-park', 'mobile-gym', 'run-kaohsiung'];
   state.data.venues.forEach(v => {
-    if (v.type !== 'sports-center' && v.type !== 'sports-park') return;
+    if (!venueTypes.includes(v.type)) return;
     if (!showType(v.type)) return;
-    // "全市" cards only show when no district selected
-    if (selectedDistrict && (v.district === '全市' || v.district !== selectedDistrict)) return;
+    if (!itemMatchesDistrict(v)) return;
     items.push(v);
   });
 
@@ -516,7 +526,9 @@ function getFiltered() {
         item.summary, item.phone, item.notes,
         ...(item.facilities       || []),
         ...(item.otherFacilities  || []),
-        ...(item.seniorBenefits   || [])
+        ...(item.seniorBenefits   || []),
+        ...(item.searchKeywords   || []),
+        item.dates, item.weekday, item.locationName, item.provider, item.vehicle
       ].some(f => f && String(f).toLowerCase().includes(lq))
     );
   }
@@ -586,6 +598,8 @@ function renderCard(item) {
   switch (item.type) {
     case 'sports-center':
     case 'sports-park':  return renderVenueCard(item);
+    case 'mobile-gym':   return renderMobileGymCard(item);
+    case 'run-kaohsiung': return renderRunKaohsiungCard(item);
     case 'park':         return renderParkCard(item);
     case 'school':       return renderSchoolCard(item);
     case 'course':       return renderCourseCard(item);
@@ -595,7 +609,7 @@ function renderCard(item) {
 
 function statusClass(status) {
   if (!status)                    return 'badge-other';
-  if (status === '營運中')        return 'badge-active';
+  if (status === '營運中' || /巡迴|全市活動/.test(status)) return 'badge-active';
   if (/建|整/.test(status))       return 'badge-construction';
   if (/部分/.test(status))        return 'badge-partial';
   return 'badge-other';
@@ -652,6 +666,93 @@ function renderVenueCard(v) {
       ${facTags ? `<div class="card-facilities">${facTags}</div>` : ''}
       <div class="card-actions">${actions.join('')}</div>
       ${hasDetails ? `<div class="card-details" id="${detailsId}" hidden>${accordItems.join('')}</div>` : ''}
+    </article>`;
+}
+
+
+function renderMobileGymCard(v) {
+  const serviceLabel = v.serviceType === '身障據點'
+    ? `${v.vehicle}－身障據點`
+    : v.vehicle;
+
+  const detailsId = `details-${v.id}`;
+  const detailItems = [
+    accordion('執行單位（運動據點）', [v.locationName || '資料待補']),
+    accordion('提供局處', [v.provider || '資料待補']),
+    accordion('注意事項', [v.notes || '實際服務安排請以最新公告為準。'])
+  ];
+
+  return `
+    <article class="card mobile-gym-card" id="card-${esc(v.id)}" data-type="mobile-gym">
+      <div class="card-header">
+        <div class="card-badges">
+          <span class="badge badge-type">行動健身房巡迴車</span>
+          <span class="badge badge-active">${esc(serviceLabel)}</span>
+        </div>
+        <h3 class="card-title">${esc(v.nameZh)}</h3>
+        <span class="card-district">📍 ${esc(v.district)}</span>
+      </div>
+      <div class="card-summary">${esc(v.summary)}</div>
+      <div class="mobile-schedule">
+        <div class="mobile-schedule-row">
+          <span class="mobile-schedule-label">服務時段</span>
+          <strong>${esc(v.weekday)} ${esc(v.hours)}</strong>
+        </div>
+        <div class="mobile-schedule-row">
+          <span class="mobile-schedule-label">服務日期</span>
+          <strong>${esc(v.dates)}</strong>
+        </div>
+        <div class="mobile-schedule-row">
+          <span class="mobile-schedule-label">運動據點</span>
+          <strong>${esc(v.locationName)}</strong>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="card-btn btn-expand" aria-expanded="false" aria-controls="${detailsId}">
+          查看完整資訊 <span class="accordion-chevron" aria-hidden="true">▼</span>
+        </button>
+      </div>
+      <div class="card-details" id="${detailsId}" hidden>${detailItems.join('')}</div>
+    </article>`;
+}
+
+function renderRunKaohsiungCard(v) {
+  const tags = (v.facilities || [])
+    .map(item => `<span class="facility-tag">${esc(item)}</span>`)
+    .join('');
+
+  return `
+    <article class="card run-kaohsiung-card" id="card-${esc(v.id)}" data-type="run-kaohsiung">
+      <div class="run-card-image-wrap">
+        <img
+          src="${v.imageData}"
+          class="run-card-image"
+          alt="走跑高雄3.0活動資訊圖"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <div class="card-header">
+        <div class="card-badges">
+          <span class="badge badge-type">走跑高雄3.0</span>
+          <span class="badge badge-active">高雄市38區</span>
+        </div>
+        <h3 class="card-title">${esc(v.nameZh)}</h3>
+        ${v.nameEn ? `<p class="card-subtitle">${esc(v.nameEn)}</p>` : ''}
+        <span class="card-district">📍 高雄市全區</span>
+      </div>
+      <div class="card-summary">${esc(v.summary)}</div>
+      <div class="card-facilities">${tags}</div>
+      <div class="card-actions">
+        <a
+          href="${esc(v.website)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-btn btn-web"
+        >
+          🌐 前往走跑高雄3.0
+        </a>
+      </div>
     </article>`;
 }
 

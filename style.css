@@ -274,7 +274,7 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
 /* --- Category Section --- */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: .75rem;
 }
 
@@ -754,6 +754,58 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   width: 100%;
   height: auto;
   margin: 0 auto;
+}
+
+
+/* --- 行動健身房巡迴車 --- */
+.mobile-schedule {
+  padding: .85rem 1.4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.mobile-schedule-row {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: .75rem;
+  align-items: start;
+  padding: .55rem .7rem;
+  background: var(--color-primary-bg);
+  border-radius: var(--radius-md);
+  line-height: 1.5;
+}
+
+.mobile-schedule-label {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+/* --- 走跑高雄3.0 --- */
+.run-card-image-wrap {
+  background: #fffaf2;
+  border-bottom: 1px solid var(--color-border-light);
+  padding: .75rem;
+}
+
+.run-card-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+}
+
+.run-kaohsiung-card .card-facilities {
+  padding-top: .75rem;
+}
+
+@media (max-width: 520px) {
+  .mobile-schedule-row {
+    grid-template-columns: 1fr;
+    gap: .15rem;
+  }
 }
 
 /* =====================================================

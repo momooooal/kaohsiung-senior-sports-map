@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="高雄銀髮運動地圖網站 — 找到離您近、適合您的運動資源">
   <title>高雄銀髮運動地圖網站</title>
-  <link rel="stylesheet" href="./style.css?v=20260722-4">
+  <link rel="stylesheet" href="./style.css?v=20260722-5">
 </head>
 <body>
 
@@ -53,7 +53,7 @@
   <!-- 1. 行政區選擇 -->
   <section id="district-section" class="section" aria-labelledby="district-heading">
     <h2 id="district-heading" class="section-title">1. 請選擇您所在的區域</h2>
-    <p class="section-desc">選擇行政區後，即可查看附近的運動中心、公園、學校、課程與運動園區。</p>
+    <p class="section-desc">選擇行政區後，即可查看附近的運動中心、公園、學校、課程、運動園區與巡迴運動資源。</p>
     <div class="district-actions">
       <button id="all-districts-btn" class="action-btn" data-testid="btn-all-districts">全部行政區</button>
       <button id="clear-district-btn" class="action-btn action-btn-ghost" data-testid="btn-clear-district">清除選擇</button>
@@ -92,6 +92,16 @@
         <span class="cat-name">運動／體育園區</span>
         <span class="cat-desc">大型場館與多元設施</span>
       </button>
+      <button class="category-btn" data-category="mobile-gym" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/mobile-gym.svg" alt=""></span>
+        <span class="cat-name">行動健身房巡迴車</span>
+        <span class="cat-desc">巡迴社區的運動服務</span>
+      </button>
+      <button class="category-btn" data-category="run-kaohsiung" aria-pressed="false">
+        <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/run-kaohsiung.svg" alt=""></span>
+        <span class="cat-name">走跑高雄3.0</span>
+        <span class="cat-desc">健走、跑步與登山集點</span>
+      </button>
       <button class="category-btn category-btn-all" data-category="all" aria-pressed="false">
         <span class="cat-name">顯示全部</span>
       </button>
@@ -109,7 +119,7 @@
           id="search-input"
           type="search"
           class="search-input"
-          placeholder="搜尋運動中心、公園、行政區、地址或設施"
+          placeholder="搜尋運動中心、公園、行動健身房、走跑高雄、行政區或設施"
           autocomplete="off"
           aria-autocomplete="list"
           aria-controls="search-suggestions"
@@ -163,6 +173,6 @@
   <p class="sr-only">高雄市政府運動發展局版權所有</p>
 </footer>
 
-<script src="./app.js?v=20260722-4"></script>
+<script src="./app.js?v=20260722-5"></script>
 </body>
 </html>
