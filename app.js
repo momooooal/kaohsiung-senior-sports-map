@@ -693,6 +693,7 @@ function renderParkCard(p) {
 
 function renderSchoolCard(s) {
   const url = s.queryUrl || '#school-link-placeholder';
+  const hasUrl = /^https?:\/\//.test(url);
   return `
     <article class="card" id="card-school-${esc(s.district)}" data-type="school">
       <div class="card-header">
@@ -703,16 +704,17 @@ function renderSchoolCard(s) {
       <div class="school-info-box">
         <span class="school-count">${s.count} 間</span>
         <p class="school-note">${esc(s.notes || '學校名稱與詳細開放資訊請至教育局查詢。')}</p>
-        <a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
+        ${hasUrl ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
            class="card-btn btn-web" style="display:inline-flex;text-decoration:none;align-self:flex-start;">
           🔍 前往教育局查詢頁面
-        </a>
+        </a>` : `<span class="school-note">教育局查詢網址待補</span>`}
       </div>
     </article>`;
 }
 
 function renderCourseCard(c) {
   const url = c.url || '#course-link-placeholder';
+  const hasUrl = /^https?:\/\//.test(url);
   return `
     <article class="card" id="card-${esc(c.id)}" data-type="course">
       <div class="card-header">
@@ -725,10 +727,10 @@ function renderCourseCard(c) {
       </div>
       <div class="course-body">
         <p class="course-desc">${esc(c.summary || '簡介內容待補。')}</p>
-        <a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
+        ${hasUrl ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer"
            class="card-btn btn-web" style="display:inline-flex;text-decoration:none;align-self:flex-start;">
           查看完整課程資訊
-        </a>
+        </a>` : `<span class="course-desc">課程網址待補</span>`}
       </div>
     </article>`;
 }
