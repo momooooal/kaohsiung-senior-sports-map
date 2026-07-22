@@ -1,0 +1,68 @@
+[
+  {
+    "district": "前金區",
+    "count": 4,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "鼓山區",
+    "count": 11,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "楠梓區",
+    "count": 16,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "岡山區",
+    "count": 10,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "左營區",
+    "count": 22,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "鹽埕區",
+    "count": 4,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "鳳山區",
+    "count": 31,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "前鎮區",
+    "count": 22,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "美濃區",
+    "count": 12,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "苓雅區",
+    "count": 14,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  },
+  {
+    "district": "大寮區",
+    "count": 13,
+    "queryUrl": "#school-link-placeholder",
+    "notes": "學校名稱與詳細開放資訊請至教育局查詢。"
+  }
+]

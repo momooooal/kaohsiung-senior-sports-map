@@ -1,0 +1,112 @@
+[
+  {
+    "id": "district-cianjin",
+    "district": "前金區",
+    "nameZh": "前金區",
+    "nameEn": "Cianjin",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 0,
+    "schoolCount": 4
+  },
+  {
+    "id": "district-gushan",
+    "district": "鼓山區",
+    "nameZh": "鼓山區",
+    "nameEn": "Gushan",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 1,
+    "schoolCount": 11
+  },
+  {
+    "id": "district-nanzi",
+    "district": "楠梓區",
+    "nameZh": "楠梓區",
+    "nameEn": "Nanzi",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 1,
+    "parkCount": 6,
+    "schoolCount": 16
+  },
+  {
+    "id": "district-gangshan",
+    "district": "岡山區",
+    "nameZh": "岡山區",
+    "nameEn": "Gangshan",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 1,
+    "schoolCount": 10
+  },
+  {
+    "id": "district-zuoying",
+    "district": "左營區",
+    "nameZh": "左營區",
+    "nameEn": "Zuoying",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 3,
+    "schoolCount": 22
+  },
+  {
+    "id": "district-yancheng",
+    "district": "鹽埕區",
+    "nameZh": "鹽埕區",
+    "nameEn": "Yancheng",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 1,
+    "schoolCount": 4
+  },
+  {
+    "id": "district-fengshan",
+    "district": "鳳山區",
+    "nameZh": "鳳山區",
+    "nameEn": "Fengshan",
+    "sportsCenterCount": 0,
+    "sportsParkCount": 1,
+    "parkCount": 13,
+    "schoolCount": 31
+  },
+  {
+    "id": "district-cianjhen",
+    "district": "前鎮區",
+    "nameZh": "前鎮區",
+    "nameEn": "Cianjhen",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 3,
+    "schoolCount": 22
+  },
+  {
+    "id": "district-meinong",
+    "district": "美濃區",
+    "nameZh": "美濃區",
+    "nameEn": "Meinong",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 1,
+    "schoolCount": 12
+  },
+  {
+    "id": "district-lingya",
+    "district": "苓雅區",
+    "nameZh": "苓雅區",
+    "nameEn": "Lingya",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 2,
+    "parkCount": 2,
+    "schoolCount": 14
+  },
+  {
+    "id": "district-daliao",
+    "district": "大寮區",
+    "nameZh": "大寮區",
+    "nameEn": "Daliao",
+    "sportsCenterCount": 1,
+    "sportsParkCount": 0,
+    "parkCount": 4,
+    "schoolCount": 13
+  }
+]

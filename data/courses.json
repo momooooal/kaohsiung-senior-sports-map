@@ -1,0 +1,20 @@
+[
+  {
+    "id": "course-regular",
+    "type": "course",
+    "nameZh": "常態課程",
+    "nameEn": "Sports iTaiwan - Regular Courses",
+    "summary": "簡介內容待補。",
+    "url": "#course-link-placeholder",
+    "notes": ""
+  },
+  {
+    "id": "course-series",
+    "type": "course",
+    "nameZh": "系列課程",
+    "nameEn": "Sports iTaiwan - Series Courses",
+    "summary": "簡介內容待補。",
+    "url": "#course-link-placeholder",
+    "notes": ""
+  }
+]
