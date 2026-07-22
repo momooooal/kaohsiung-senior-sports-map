@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="運動中心"><title>運動中心</title><g fill="none" stroke="#2d6a2f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="18" width="46" height="34" rx="4"/><path d="M16 18V12h32v6M21 29h22M21 38h22"/><circle cx="21" cy="46" r="2"/><circle cx="43" cy="46" r="2"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <rect x="5" y="5" width="86" height="86" rx="28" fill="#E6F7EE"/>
+  <rect x="22" y="30" width="52" height="43" rx="9" fill="#FFFFFF" stroke="#27845A" stroke-width="4"/>
+  <path d="M30 30v-8h36v8" fill="#BEEBD5" stroke="#27845A" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="38" cy="48" r="3" fill="#27845A"/>
+  <circle cx="58" cy="48" r="3" fill="#27845A"/>
+  <path d="M39 58c5 5 13 5 18 0" fill="none" stroke="#27845A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M28 65h40" stroke="#F59E42" stroke-width="5" stroke-linecap="round"/>
+  <path d="M16 20l5 5M75 18l-5 6" stroke="#F7B955" stroke-width="4" stroke-linecap="round"/>
+</svg>

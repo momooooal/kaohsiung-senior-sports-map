@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="運動i臺灣課程"><title>運動i臺灣課程</title><g fill="none" stroke="#2d6a2f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="13" r="6"/><path d="M32 20v15M32 25l-13 8M32 25l13 8M32 35l-10 17M32 35l11 17"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <rect x="5" y="5" width="86" height="86" rx="28" fill="#FFF1DF"/>
+  <circle cx="48" cy="25" r="9" fill="#F3B37A"/>
+  <path d="M48 35v24M48 42L29 30M48 42l19-12M48 59L34 76M48 59l14 17" fill="none" stroke="#E76A2E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="25" cy="27" r="5" fill="#FFD15A"/>
+  <circle cx="71" cy="27" r="5" fill="#7CC7F3"/>
+  <path d="M20 64c6-5 11-5 16 0M62 64c6-5 11-5 16 0" fill="none" stroke="#5A9C65" stroke-width="4" stroke-linecap="round"/>
+</svg>

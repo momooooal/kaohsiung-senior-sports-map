@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="運動園區"><title>運動園區</title><g fill="none" stroke="#2d6a2f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="32" cy="32" rx="25" ry="18"/><ellipse cx="32" cy="32" rx="15" ry="9"/><path d="M7 32h50M32 14v36"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <rect x="5" y="5" width="86" height="86" rx="28" fill="#E8F2FF"/>
+  <ellipse cx="48" cy="58" rx="31" ry="20" fill="#FFFFFF" stroke="#3E7BC4" stroke-width="4"/>
+  <ellipse cx="48" cy="58" rx="21" ry="12" fill="#BFE2FF" stroke="#3E7BC4" stroke-width="3"/>
+  <ellipse cx="48" cy="58" rx="10" ry="5" fill="#8FD18B"/>
+  <path d="M27 35h42l-5 11H32z" fill="#FFCF67" stroke="#E09A2D" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="42" cy="56" r="2.5" fill="#245D8A"/>
+  <circle cx="54" cy="56" r="2.5" fill="#245D8A"/>
+  <path d="M43 63c3 3 7 3 10 0" fill="none" stroke="#245D8A" stroke-width="3" stroke-linecap="round"/>
+</svg>

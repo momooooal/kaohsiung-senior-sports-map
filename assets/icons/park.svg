@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="公園"><title>公園</title><g fill="none" stroke="#2d6a2f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8c-8 0-14 7-14 15 0 3 1 6 3 8-6 1-10 6-10 12h42c0-6-4-11-10-12 2-2 3-5 3-8 0-8-6-15-14-15z"/><path d="M32 29v23M24 52h16"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <rect x="5" y="5" width="86" height="86" rx="28" fill="#F0F9D9"/>
+  <circle cx="37" cy="35" r="18" fill="#7CCB66"/>
+  <circle cx="25" cy="42" r="12" fill="#99DD75"/>
+  <circle cx="49" cy="44" r="13" fill="#5EB653"/>
+  <rect x="34" y="47" width="7" height="25" rx="3" fill="#9B6B43"/>
+  <rect x="52" y="57" width="26" height="6" rx="3" fill="#F7A44A"/>
+  <rect x="55" y="63" width="4" height="10" rx="2" fill="#7A5942"/>
+  <rect x="71" y="63" width="4" height="10" rx="2" fill="#7A5942"/>
+  <circle cx="31" cy="34" r="2.5" fill="#245D35"/>
+  <circle cx="42" cy="34" r="2.5" fill="#245D35"/>
+  <path d="M32 41c3 3 7 3 10 0" fill="none" stroke="#245D35" stroke-width="3" stroke-linecap="round"/>
+</svg>
