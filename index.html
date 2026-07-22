@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="高雄銀髮運動地圖網站 — 找到離您近、適合您的運動資源">
   <title>高雄銀髮運動地圖網站</title>
-  <link rel="stylesheet" href="./style.css?v=20260722-7">
-  <!-- BUILD: v7-no-school -->
+  <link rel="stylesheet" href="./style.css?v=20260722-8">
+  <!-- BUILD: v8-no-district-selector -->
 </head>
 <body>
 
@@ -54,22 +54,9 @@
 
 <main id="main-content" class="container" role="main">
 
-  <!-- 1. 行政區選擇 -->
-  <section id="district-section" class="section" aria-labelledby="district-heading">
-    <h2 id="district-heading" class="section-title">1. 請選擇您所在的區域</h2>
-    <p class="section-desc">選擇行政區後，即可查看附近的運動中心、公園、課程、運動園區與巡迴運動資源。</p>
-    <div class="district-actions">
-      <button id="all-districts-btn" class="action-btn" data-testid="btn-all-districts">全部行政區</button>
-      <button id="clear-district-btn" class="action-btn action-btn-ghost" data-testid="btn-clear-district">清除選擇</button>
-    </div>
-    <div id="district-buttons" class="district-grid" role="group" aria-label="行政區選擇按鈕">
-      <!-- 由 JS 產生 -->
-    </div>
-  </section>
-
-  <!-- 2. 資源分類 -->
+  <!-- 1. 資源分類 -->
   <section id="category-section" class="section" aria-labelledby="category-heading">
-    <h2 id="category-heading" class="section-title">2. 您想找哪一種運動資源？</h2>
+    <h2 id="category-heading" class="section-title">1. 您想找哪一種運動資源？</h2>
     <div class="category-grid" role="group" aria-label="資源分類選擇">
       <button class="category-btn" data-category="sports-center" aria-pressed="false">
         <span class="cat-icon" aria-hidden="true"><img src="./assets/icons/sports-center.svg" alt=""></span>
@@ -108,9 +95,9 @@
     </div>
   </section>
 
-  <!-- 3. 搜尋 -->
+  <!-- 2. 搜尋 -->
   <section id="search-section" class="section" aria-labelledby="search-heading">
-    <h2 id="search-heading" class="section-title">3. 搜尋運動地點</h2>
+    <h2 id="search-heading" class="section-title">2. 搜尋運動地點</h2>
     <div class="search-wrapper">
       <label for="search-input" class="sr-only">搜尋運動資源</label>
       <div class="search-input-wrap" role="search">
@@ -151,8 +138,8 @@
   <section id="prompt-section" class="section prompt-section" aria-label="操作提示">
     <div class="prompt-box">
       <p class="prompt-icon" aria-hidden="true">🏃</p>
-      <p class="prompt-title">請從上方選擇行政區或資源類型開始查詢</p>
-      <p class="prompt-sub">也可以直接在搜尋欄輸入關鍵字，找到您想要的運動地點</p>
+      <p class="prompt-title">請從上方選擇運動資源類型開始查詢</p>
+      <p class="prompt-sub">也可以直接輸入場館名稱、行政區或運動設施等關鍵字</p>
     </div>
   </section>
 
@@ -173,6 +160,6 @@
   <p class="sr-only">高雄市政府運動發展局版權所有</p>
 </footer>
 
-<script src="./app.js?v=20260722-7"></script>
+<script src="./app.js?v=20260722-8"></script>
 </body>
 </html>

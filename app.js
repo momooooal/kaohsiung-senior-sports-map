@@ -4,9 +4,8 @@
    State
    ===================================================== */
 const state = {
-  data: { venues: [], parks: [], courses: [], districts: [] },
+  data: { venues: [], parks: [], courses: [] },
   loaded: false,
-  selectedDistrict: null,
   selectedCategory: null,
   searchQuery: '',
   showAll: false,
@@ -49,7 +48,6 @@ async function loadAllData() {
     { key: 'venues',    url: './data/venues.json' },
     { key: 'parks',     url: './data/parks.json' },
     { key: 'courses',   url: './data/courses.json' },
-    { key: 'districts', url: './data/districts.json' }
   ];
 
   const results = await Promise.allSettled(
@@ -87,7 +85,6 @@ async function loadAllData() {
     console.warn('部分資料檔案載入失敗，但其他資料仍可使用：', failed);
   }
 
-  renderDistrictButtons();
   renderResults();
 }
 
@@ -155,7 +152,7 @@ function showDataError(failedFiles = []) {
       <p class="error-title">⚠ 資料暫時無法載入</p>
       <p class="error-desc">
         請確認 GitHub 儲存庫中有 <code>data</code> 資料夾，
-        並且五個 JSON 檔名與大小寫完全正確。
+        並且 venues.json、parks.json、courses.json 的檔名與大小寫完全正確。
       </p>
       ${details}
       <button class="reload-btn" onclick="location.reload()">重新整理</button>
@@ -188,44 +185,6 @@ function applyFontScale() {
 }
 
 /* =====================================================
-   District Buttons
-   ===================================================== */
-const PRIORITY_DISTRICTS = [
-  '前金區','鼓山區','楠梓區','岡山區',
-  '左營區','鹽埕區','鳳山區','前鎮區',
-  '美濃區','苓雅區','大寮區'
-];
-
-function renderDistrictButtons() {
-  const container = document.getElementById('district-buttons');
-  if (!container) return;
-
-  container.innerHTML = PRIORITY_DISTRICTS.map(name => {
-    const sel = state.selectedDistrict === name;
-    return `
-      <button
-        class="district-btn${sel ? ' selected' : ''}"
-        data-district="${esc(name)}"
-        aria-pressed="${sel}"
-        aria-label="${sel ? '已選擇' : '選擇'}${esc(name)}"
-        data-testid="btn-district-${esc(name)}"
-      >
-        ${sel ? '<span class="district-check" aria-hidden="true">✓</span>' : ''}
-        <span class="district-name">${esc(name)}</span>
-      </button>`;
-  }).join('');
-
-  container.querySelectorAll('.district-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const d = btn.dataset.district;
-      state.selectedDistrict = (state.selectedDistrict === d) ? null : d;
-      state.showAll = true;
-      sync();
-    });
-  });
-}
-
-/* =====================================================
    Event Listeners
    ===================================================== */
 function setupEventListeners() {
@@ -240,15 +199,6 @@ function setupEventListeners() {
     if (state.fontScaleIndex < 4) { state.fontScaleIndex++; applyFontScale(); }
   });
 
-  // All / clear districts
-  document.getElementById('all-districts-btn')?.addEventListener('click', () => {
-    state.selectedDistrict = null; state.showAll = true; sync();
-  });
-  document.getElementById('clear-district-btn')?.addEventListener('click', () => {
-    state.selectedDistrict = null;
-    if (!state.selectedCategory && !state.searchQuery) state.showAll = false;
-    sync();
-  });
 
   // Category
   document.querySelectorAll('.category-btn').forEach(btn => {
@@ -278,7 +228,7 @@ function setupEventListeners() {
       if (q.length >= 2) showSuggestions(q);
       else               hideSuggestions();
       if (q.length > 0) state.showAll = true;
-      else if (!state.selectedDistrict && !state.selectedCategory) state.showAll = false;
+      else if (!state.selectedCategory) state.showAll = false;
       sync();
     }, 300);
   });
@@ -307,7 +257,7 @@ function setupEventListeners() {
     state.searchQuery = '';
     clearBtn.hidden = true;
     hideSuggestions();
-    if (!state.selectedDistrict && !state.selectedCategory) state.showAll = false;
+    if (!state.selectedCategory) state.showAll = false;
     sync();
   });
 
@@ -390,7 +340,6 @@ function highlightSuggestion(items) {
    Sync (re-render everything)
    ===================================================== */
 function sync() {
-  renderDistrictButtons();
   updateCategoryButtons();
   updateFilterTags();
   renderResults();
@@ -400,7 +349,7 @@ function updateCategoryButtons() {
   document.querySelectorAll('.category-btn').forEach(btn => {
     const cat = btn.dataset.category;
     const active = cat === 'all'
-      ? (!state.selectedCategory && state.showAll && !state.selectedDistrict && !state.searchQuery)
+      ? (!state.selectedCategory && state.showAll && !state.searchQuery)
       : state.selectedCategory === cat;
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
@@ -415,7 +364,6 @@ function updateFilterTags() {
   if (!sec || !tags) return;
 
   const items = [];
-  if (state.selectedDistrict)  items.push({ label: `行政區：${state.selectedDistrict}`,  key: 'district' });
   if (state.selectedCategory)  items.push({ label: `資源分類：${CATEGORY_LABELS[state.selectedCategory] || state.selectedCategory}`, key: 'category' });
   if (state.searchQuery)       items.push({ label: `關鍵字：${state.searchQuery}`, key: 'search' });
 
@@ -429,8 +377,7 @@ function updateFilterTags() {
   tags.querySelectorAll('.filter-tag-remove').forEach(btn => {
     btn.addEventListener('click', () => {
       const key = btn.dataset.key;
-      if (key === 'district') { state.selectedDistrict = null; }
-      else if (key === 'category') { state.selectedCategory = null; }
+      if (key === 'category') { state.selectedCategory = null; }
       else if (key === 'search') {
         state.searchQuery = '';
         const input = document.getElementById('search-input');
@@ -438,14 +385,13 @@ function updateFilterTags() {
         if (input) input.value = '';
         if (cb)    cb.hidden = true;
       }
-      if (!state.selectedDistrict && !state.selectedCategory && !state.searchQuery) state.showAll = false;
+      if (!state.selectedCategory && !state.searchQuery) state.showAll = false;
       sync();
     });
   });
 }
 
 function clearAll() {
-  state.selectedDistrict = null;
   state.selectedCategory = null;
   state.searchQuery = '';
   state.showAll = false;
@@ -461,44 +407,36 @@ function clearAll() {
    Results
    ===================================================== */
 function getFiltered() {
-  const { selectedDistrict, selectedCategory, searchQuery } = state;
-
-  const showType = t => !selectedCategory || selectedCategory === t;
-  const matchDistrict = d => !selectedDistrict || d === selectedDistrict;
-  const itemMatchesDistrict = item => {
-    if (!selectedDistrict) return true;
-    if (item.allDistricts) return true;
-    if (Array.isArray(item.districts)) return item.districts.includes(selectedDistrict);
-    return item.district === selectedDistrict;
-  };
+  const { selectedCategory, searchQuery } = state;
+  const showType = type => !selectedCategory || selectedCategory === type;
 
   let items = [];
 
-  // Venue-style resources
+  // 場館與活動型資源
   const venueTypes = ['sports-center', 'sports-park', 'mobile-gym', 'run-kaohsiung'];
-  state.data.venues.forEach(v => {
-    if (!venueTypes.includes(v.type)) return;
-    if (!showType(v.type)) return;
-    if (!itemMatchesDistrict(v)) return;
-    items.push(v);
+  state.data.venues.forEach(item => {
+    if (!venueTypes.includes(item.type)) return;
+    if (!showType(item.type)) return;
+    items.push(item);
   });
 
-  // Parks
+  // 公園
   if (showType('park')) {
-    state.data.parks.forEach(p => {
-      if (!matchDistrict(p.district)) return;
-      items.push({ ...p, type: 'park' });
+    state.data.parks.forEach(park => {
+      items.push({ ...park, type: 'park' });
     });
   }
 
-  // Courses — city-wide; appear regardless of district
+  // 運動 i 臺灣課程
   if (showType('course')) {
-    state.data.courses.forEach(c => items.push({ ...c, district: '全市' }));
+    state.data.courses.forEach(course => {
+      items.push({ ...course, district: '全市' });
+    });
   }
 
-  // Search filter
+  // 關鍵字搜尋仍可搜尋行政區名稱
   if (searchQuery) {
-    const lq = searchQuery.toLowerCase();
+    const keyword = searchQuery.toLowerCase();
     items = items.filter(item =>
       [item.nameZh, item.nameEn, item.district, item.address,
         item.summary, item.phone, item.notes,
@@ -507,7 +445,9 @@ function getFiltered() {
         ...(item.seniorBenefits   || []),
         ...(item.searchKeywords   || []),
         item.dates, item.weekday, item.locationName, item.provider, item.vehicle
-      ].some(f => f && String(f).toLowerCase().includes(lq))
+      ].some(value =>
+        value && String(value).toLowerCase().includes(keyword)
+      )
     );
   }
 
@@ -520,7 +460,7 @@ function renderResults() {
   const grid       = document.getElementById('results-grid');
   const countEl    = document.getElementById('results-count');
 
-  const hasFilter = state.selectedDistrict || state.selectedCategory || state.searchQuery || state.showAll;
+  const hasFilter = state.selectedCategory || state.searchQuery || state.showAll;
 
   if (!hasFilter) {
     if (promptSec)  promptSec.hidden  = false;
@@ -537,14 +477,10 @@ function renderResults() {
   }
 
   const items = getFiltered();
-
   if (countEl) {
-    const d = state.selectedDistrict;
     const q = state.searchQuery;
-    if (d && q) countEl.textContent = `${d}中共有 ${items.length} 筆符合「${q}」的運動資源`;
-    else if (d)  countEl.textContent = `${d}共有 ${items.length} 筆運動資源`;
-    else if (q)  countEl.textContent = `共有 ${items.length} 筆符合「${q}」的結果`;
-    else         countEl.textContent = `共有 ${items.length} 筆運動資源`;
+    if (q) countEl.textContent = `共有 ${items.length} 筆符合「${q}」的結果`;
+    else   countEl.textContent = `共有 ${items.length} 筆運動資源`;
   }
 
   if (grid) {
@@ -561,10 +497,10 @@ function renderEmpty() {
   return `
     <div class="empty-state">
       <p class="empty-title">找不到符合條件的運動資源</p>
-      <p class="empty-desc">請嘗試其他關鍵字、切換行政區，或清除目前的篩選條件。</p>
+      <p class="empty-desc">請嘗試其他關鍵字、切換資源類型，或清除目前的篩選條件。</p>
       <div class="empty-actions">
-        <button class="action-btn" onclick="clearAll()">清除搜尋</button>
-        <button class="action-btn action-btn-ghost" onclick="(function(){state.selectedDistrict=null;state.showAll=true;sync();})()">顯示全部行政區</button>
+        <button class="action-btn" onclick="clearAll()">清除搜尋與篩選</button>
+        <button class="action-btn action-btn-ghost" onclick="(function(){state.selectedCategory=null;state.searchQuery='';state.showAll=true;const input=document.getElementById('search-input');const cb=document.getElementById('search-clear');if(input)input.value='';if(cb)cb.hidden=true;sync();})()">顯示全部資源</button>
       </div>
     </div>`;
 }

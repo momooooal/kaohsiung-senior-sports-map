@@ -198,79 +198,6 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   margin-bottom: 1.1rem;
 }
 
-/* --- District Section --- */
-.district-actions {
-  display: flex;
-  gap: .6rem;
-  margin-bottom: 1.1rem;
-  flex-wrap: wrap;
-}
-
-.action-btn {
-  min-height: 48px;
-  padding: .5rem 1.25rem;
-  background: var(--color-primary);
-  color: #fff;
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-md);
-  font-size: .95rem;
-  font-weight: 700;
-  transition: background .15s;
-}
-
-.action-btn:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); }
-
-.action-btn-ghost {
-  background: transparent;
-  color: var(--color-primary);
-}
-.action-btn-ghost:hover { background: var(--color-primary-bg); }
-
-.district-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: .75rem;
-}
-
-.district-btn {
-  min-height: 70px;
-  padding: .75rem .5rem;
-  background: var(--color-primary);
-  color: #fff;
-  border: 3px solid transparent;
-  border-radius: var(--radius-lg);
-  font-size: 1.05rem;
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: .25rem;
-  transition: background .15s, transform .1s, border-color .15s, box-shadow .15s;
-  text-align: center;
-}
-
-.district-btn:hover {
-  background: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.district-btn.selected {
-  background: var(--color-accent);
-  border-color: var(--color-accent-dark);
-  box-shadow: 0 0 0 3px var(--color-accent-bg);
-}
-
-.district-name { font-size: 1.05rem; font-weight: 700; }
-
-
-.district-check {
-  font-size: 1rem;
-  font-weight: 900;
-  line-height: 1;
-}
-
 /* --- Category Section --- */
 .category-grid {
   display: grid;
@@ -804,7 +731,6 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
    ===================================================== */
 @media (max-width: 1024px) {
   .category-grid { grid-template-columns: repeat(3, 1fr); }
-  .district-grid  { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -813,7 +739,6 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   .site-subtitle { font-size: .88rem; }
   .header-inner { min-height: 70px; }
   .section-title { font-size: 1.35rem; }
-  .district-grid  { grid-template-columns: repeat(2, 1fr); }
   .category-grid  { grid-template-columns: repeat(2, 1fr); }
   .results-grid   { grid-template-columns: 1fr; }
   .header-inner   { gap: .6rem; }
@@ -827,12 +752,10 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   .font-label { display: none; }
   .header-inner { flex-wrap: nowrap; }
   .font-btn   { min-width: 44px; font-size: .85rem; }
-  .district-grid { grid-template-columns: repeat(2, 1fr); }
   .category-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 360px) {
-  .district-grid { grid-template-columns: 1fr; }
 }
 
 
