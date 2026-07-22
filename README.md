@@ -112,3 +112,9 @@
 ## GitHub Pages 相容性說明
 
 本專案所有檔案路徑均使用相對路徑（`./data/venues.json`、`./style.css` 等），可在 GitHub Pages 的子目錄下正確運作，無需額外設定。
+
+
+## 網頁首尾圖片
+
+- `assets/images/site-header-banner.png`：網站最上方主視覺。
+- `assets/images/site-footer-reminder.png`：網站最底部的運動提醒圖。
