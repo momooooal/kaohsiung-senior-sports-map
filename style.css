@@ -632,6 +632,40 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   padding-bottom: 1rem;
 }
 
+
+.park-management-note {
+  margin: 0 1.4rem 1.25rem;
+  padding: .9rem 1rem;
+  background: #eef8ee;
+  border: 1.5px solid var(--color-border);
+  border-left: 5px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .45rem;
+  font-size: .88rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.park-management-note strong {
+  color: var(--color-primary-dark);
+}
+
+.btn-park-office {
+  margin-top: .2rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.btn-park-office:hover {
+  background: var(--color-primary-dark);
+  color: #fff;
+  border-color: var(--color-primary-dark);
+}
+
 /* --- Course Card --- */
 .course-body { padding: 1rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: .75rem; }
 .course-desc { font-size: .9rem; color: var(--color-text-muted); }

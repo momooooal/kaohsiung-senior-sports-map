@@ -697,6 +697,22 @@ function renderParkCard(p) {
         <p><strong>園內設施：</strong>${esc(insideText)}</p>
         ${otherBlock}
       </div>
+      <div class="park-management-note">
+        <p>
+          <strong>管理單位：</strong>高雄市政府工務局公園處
+        </p>
+        <p>
+          如有公園相關問題，可前往公園處網站查詢或反映。
+        </p>
+        <a
+          href="https://pwbpo.kcg.gov.tw/News_Photo.aspx?n=368FF1FBF413E73A&sms=3B7F915DCFF56ABD"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-btn btn-park-office"
+        >
+          🌳 前往公園處網站
+        </a>
+      </div>
     </article>`;
 }
 
