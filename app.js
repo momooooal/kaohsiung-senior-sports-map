@@ -288,7 +288,7 @@ function showSuggestions(query) {
       ...(item.otherFacilities || []),
       ...(item.seniorBenefits || []),
       ...(item.searchKeywords || []),
-      item.dates, item.weekday, item.locationName, item.provider, item.vehicle
+      item.dates, item.weekday, item.locationName, item.provider, item.vehicle, item.phone
     ].some(f => f && String(f).toLowerCase().includes(lq))
   ).slice(0, 8);
 
@@ -444,7 +444,7 @@ function getFiltered() {
         ...(item.otherFacilities  || []),
         ...(item.seniorBenefits   || []),
         ...(item.searchKeywords   || []),
-        item.dates, item.weekday, item.locationName, item.provider, item.vehicle
+        item.dates, item.weekday, item.locationName, item.provider, item.vehicle, item.phone
       ].some(value =>
         value && String(value).toLowerCase().includes(keyword)
       )
@@ -589,11 +589,31 @@ function renderMobileGymCard(v) {
     : v.vehicle;
 
   const detailsId = `details-${v.id}`;
+  const registrationNotice = v.registrationNotice
+    || `為掌握長輩運動前後測狀況，課程採事先報名制，報名請洽據點「${v.locationName || '運動據點'}」。`;
+  const phone = String(v.phone || '').trim();
+  const telHref = phone ? phone.replace(/[^0-9+]/g, '') : '';
+  const officialUrl = v.officialUrl || 'https://sports.kcg.gov.tw/EventSite/index.aspx?SiteId=d1d9d431-67a7-4921-be53-f76d96967378';
+
   const detailItems = [
     accordion('執行單位（運動據點）', [v.locationName || '資料待補']),
     accordion('提供局處', [v.provider || '資料待補']),
     accordion('注意事項', [v.notes || '實際服務安排請以最新公告為準。'])
   ];
+
+  const phoneAction = phone
+    ? `<a href="tel:${esc(telHref)}" class="card-btn btn-call-mobile-gym" aria-label="撥打 ${esc(phone)} 向 ${esc(v.locationName)} 報名">📞 撥打電話報名</a>`
+    : `<span class="card-btn btn-phone-unavailable" aria-disabled="true">📞 報名電話待確認</span>`;
+
+  const phoneRow = phone
+    ? `<div class="mobile-schedule-row mobile-phone-row">
+         <span class="mobile-schedule-label">報名電話</span>
+         <strong><a href="tel:${esc(telHref)}">${esc(phone)}</a></strong>
+       </div>`
+    : `<div class="mobile-schedule-row mobile-phone-row mobile-phone-pending">
+         <span class="mobile-schedule-label">報名電話</span>
+         <strong>待主辦單位確認</strong>
+       </div>`;
 
   return `
     <article class="card mobile-gym-card" id="card-${esc(v.id)}" data-type="mobile-gym">
@@ -606,6 +626,10 @@ function renderMobileGymCard(v) {
         <span class="card-district">📍 ${esc(v.district)}</span>
       </div>
       <div class="card-summary">${esc(v.summary)}</div>
+      <div class="mobile-registration-note" role="note">
+        <strong>📣 報名提醒</strong>
+        <p>${esc(registrationNotice)}</p>
+      </div>
       <div class="mobile-schedule">
         <div class="mobile-schedule-row">
           <span class="mobile-schedule-label">服務時段</span>
@@ -619,8 +643,16 @@ function renderMobileGymCard(v) {
           <span class="mobile-schedule-label">運動據點</span>
           <strong>${esc(v.locationName)}</strong>
         </div>
+        ${phoneRow}
       </div>
-      <div class="card-actions">
+      <div class="mobile-gym-contact-actions">
+        ${phoneAction}
+        <a href="${esc(officialUrl)}" target="_blank" rel="noopener noreferrer" class="card-btn btn-mobile-gym-web">
+          🌐 行動健身房巡迴車官網
+        </a>
+      </div>
+      ${!phone ? `<p class="mobile-phone-help">目前未查得可公開核對之據點電話，請先由行動健身房巡迴車官網確認最新報名方式。</p>` : ''}
+      <div class="card-actions mobile-gym-detail-action">
         <button class="card-btn btn-expand" aria-expanded="false" aria-controls="${detailsId}">
           查看完整資訊 <span class="accordion-chevron" aria-hidden="true">▼</span>
         </button>

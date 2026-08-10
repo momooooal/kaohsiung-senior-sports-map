@@ -755,6 +755,101 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   font-weight: 700;
 }
 
+
+.mobile-registration-note {
+  margin: .9rem 1.4rem 0;
+  padding: .9rem 1rem;
+  background: #fff7e8;
+  border: 1.5px solid #f2c879;
+  border-left: 5px solid #e49a2f;
+  border-radius: var(--radius-md);
+  line-height: 1.65;
+}
+
+.mobile-registration-note strong {
+  display: block;
+  margin-bottom: .25rem;
+  color: #8a5714;
+}
+
+.mobile-registration-note p {
+  margin: 0;
+}
+
+.mobile-phone-row a {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mobile-phone-pending {
+  background: #f6f6f6;
+}
+
+.mobile-gym-contact-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+  padding: 0 1.4rem 1rem;
+}
+
+.btn-call-mobile-gym,
+.btn-mobile-gym-web {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-call-mobile-gym {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.btn-call-mobile-gym:hover {
+  background: var(--color-primary-dark);
+  color: #fff;
+  border-color: var(--color-primary-dark);
+}
+
+.btn-mobile-gym-web {
+  background: #eef6ff;
+  color: #245a8d;
+  border-color: #9fc4e6;
+}
+
+.btn-mobile-gym-web:hover {
+  background: #dfefff;
+  color: #19486f;
+}
+
+.btn-phone-unavailable {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+  color: #777;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.mobile-phone-help {
+  margin: -.35rem 1.4rem 1rem;
+  padding: .65rem .8rem;
+  border-radius: var(--radius-sm);
+  background: #fff7e8;
+  color: #76551c;
+  font-size: .86rem;
+  line-height: 1.55;
+}
+
+.mobile-gym-detail-action {
+  padding-top: 0;
+}
+
 /* --- 走跑高雄3.0 --- */
 .run-kaohsiung-card .card-facilities {
   padding-top: .75rem;
@@ -764,6 +859,21 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
   .mobile-schedule-row {
     grid-template-columns: 1fr;
     gap: .15rem;
+  }
+
+  .mobile-gym-contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-registration-note,
+  .mobile-phone-help {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .mobile-gym-contact-actions {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
