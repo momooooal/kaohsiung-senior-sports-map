@@ -80,6 +80,7 @@ async function loadAllData() {
   }
 
   state.loaded = true;
+  updateCategoryAvailability();
 
   if (failed.length > 0) {
     console.warn('部分資料檔案載入失敗，但其他資料仍可使用：', failed);
@@ -268,11 +269,43 @@ function setupEventListeners() {
   document.getElementById('clear-all-btn')?.addEventListener('click', clearAll);
 }
 
+
+/* =====================================================
+   Mobile Gym Activity Availability
+   ===================================================== */
+function isMobileGymActive(item, now = new Date()) {
+  if (!item || item.type !== 'mobile-gym') return true;
+  if (!item.activeUntil) return true;
+
+  const deadline = new Date(item.activeUntil);
+  if (Number.isNaN(deadline.getTime())) return true;
+
+  return now.getTime() <= deadline.getTime();
+}
+
+function hasActiveMobileGym() {
+  return state.data.venues.some(
+    item => item.type === 'mobile-gym' && isMobileGymActive(item)
+  );
+}
+
+function updateCategoryAvailability() {
+  const btn = document.querySelector('.category-btn[data-category="mobile-gym"]');
+  if (!btn) return;
+
+  const hasActive = hasActiveMobileGym();
+  btn.hidden = !hasActive;
+
+  if (!hasActive && state.selectedCategory === 'mobile-gym') {
+    state.selectedCategory = null;
+  }
+}
+
 /* =====================================================
    Suggestions
    ===================================================== */
 function allSearchable() {
-  const venues  = state.data.venues.map(v => ({ ...v }));
+  const venues  = state.data.venues.filter(v => isMobileGymActive(v)).map(v => ({ ...v }));
   const parks   = state.data.parks.map(p => ({ ...p, type: 'park' }));
   const courses = state.data.courses.map(c => ({
     ...c, district: '全市', address: '', facilities: []
@@ -288,7 +321,7 @@ function showSuggestions(query) {
       ...(item.otherFacilities || []),
       ...(item.seniorBenefits || []),
       ...(item.searchKeywords || []),
-      item.dates, item.weekday, item.locationName, item.provider, item.vehicle, item.phone
+      item.dates, item.weekday, item.locationName, item.provider, item.vehicle, item.contactName, item.phone
     ].some(f => f && String(f).toLowerCase().includes(lq))
   ).slice(0, 8);
 
@@ -417,6 +450,7 @@ function getFiltered() {
   state.data.venues.forEach(item => {
     if (!venueTypes.includes(item.type)) return;
     if (!showType(item.type)) return;
+    if (item.type === 'mobile-gym' && !isMobileGymActive(item)) return;
     items.push(item);
   });
 
@@ -444,7 +478,7 @@ function getFiltered() {
         ...(item.otherFacilities  || []),
         ...(item.seniorBenefits   || []),
         ...(item.searchKeywords   || []),
-        item.dates, item.weekday, item.locationName, item.provider, item.vehicle, item.phone
+        item.dates, item.weekday, item.locationName, item.provider, item.vehicle, item.contactName, item.phone
       ].some(value =>
         value && String(value).toLowerCase().includes(keyword)
       )
@@ -522,7 +556,7 @@ function renderCard(item) {
 
 function statusClass(status) {
   if (!status)                    return 'badge-other';
-  if (status === '營運中' || /巡迴|全市活動/.test(status)) return 'badge-active';
+  if (status === '營運中' || /巡迴|全市活動|第二階段/.test(status)) return 'badge-active';
   if (/建|整/.test(status))       return 'badge-construction';
   if (/部分/.test(status))        return 'badge-partial';
   return 'badge-other';
@@ -594,9 +628,13 @@ function renderMobileGymCard(v) {
   const phone = String(v.phone || '').trim();
   const telHref = phone ? phone.replace(/[^0-9+]/g, '') : '';
   const officialUrl = v.officialUrl || 'https://sports.kcg.gov.tw/EventSite/index.aspx?SiteId=d1d9d431-67a7-4921-be53-f76d96967378';
+  const mapsUrl = v.mapsUrl || (v.address
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.address)}`
+    : '');
+  const contactName = String(v.contactName || '').trim();
 
   const detailItems = [
-    accordion('執行單位（運動據點）', [v.locationName || '資料待補']),
+    accordion('運動據點', [v.locationName || '資料待補']),
     accordion('提供局處', [v.provider || '資料待補']),
     accordion('注意事項', [v.notes || '實際服務安排請以最新公告為準。'])
   ];
@@ -614,6 +652,28 @@ function renderMobileGymCard(v) {
          <span class="mobile-schedule-label">報名電話</span>
          <strong>待主辦單位確認</strong>
        </div>`;
+
+  const addressRow = v.address
+    ? `<div class="mobile-schedule-row mobile-address-row">
+         <span class="mobile-schedule-label">據點地址</span>
+         <strong>
+           ${mapsUrl
+             ? `<a href="${esc(mapsUrl)}" target="_blank" rel="noopener noreferrer" class="mobile-map-link">${esc(v.address)}</a>`
+             : esc(v.address)}
+         </strong>
+       </div>`
+    : '';
+
+  const contactRow = contactName
+    ? `<div class="mobile-schedule-row">
+         <span class="mobile-schedule-label">據點聯絡人</span>
+         <strong>${esc(contactName)}</strong>
+       </div>`
+    : '';
+
+  const mapAction = mapsUrl
+    ? `<a href="${esc(mapsUrl)}" target="_blank" rel="noopener noreferrer" class="card-btn btn-mobile-gym-map">📍 Google 地圖導航</a>`
+    : '';
 
   return `
     <article class="card mobile-gym-card" id="card-${esc(v.id)}" data-type="mobile-gym">
@@ -643,15 +703,18 @@ function renderMobileGymCard(v) {
           <span class="mobile-schedule-label">運動據點</span>
           <strong>${esc(v.locationName)}</strong>
         </div>
+        ${addressRow}
+        ${contactRow}
         ${phoneRow}
       </div>
       <div class="mobile-gym-contact-actions">
         ${phoneAction}
+        ${mapAction}
         <a href="${esc(officialUrl)}" target="_blank" rel="noopener noreferrer" class="card-btn btn-mobile-gym-web">
           🌐 行動健身房巡迴車官網
         </a>
       </div>
-      ${!phone ? `<p class="mobile-phone-help">目前未查得可公開核對之據點電話，請先由行動健身房巡迴車官網確認最新報名方式。</p>` : ''}
+      ${!phone ? `<p class="mobile-phone-help">目前尚無報名電話資料，請先由行動健身房巡迴車官網確認最新報名方式。</p>` : ''}
       <div class="card-actions mobile-gym-detail-action">
         <button class="card-btn btn-expand" aria-expanded="false" aria-controls="${detailsId}">
           查看完整資訊 <span class="accordion-chevron" aria-hidden="true">▼</span>

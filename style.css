@@ -788,12 +788,13 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
 
 .mobile-gym-contact-actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: .7rem;
   padding: 0 1.4rem 1rem;
 }
 
 .btn-call-mobile-gym,
+.btn-mobile-gym-map,
 .btn-mobile-gym-web {
   min-height: 50px;
   display: inline-flex;
