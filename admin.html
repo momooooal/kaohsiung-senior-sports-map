@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <title>行動健身房據點資料維護</title>
-  <link rel="stylesheet" href="./style.css?v=20260812-mobilegym-phase2">
-  <link rel="stylesheet" href="./admin.css?v=20260812-mobilegym-phase2">
+  <title>場館／據點資料新增或修改申請</title>
+  <link rel="stylesheet" href="./style.css?v=20260812-review-workflow">
+  <link rel="stylesheet" href="./admin.css?v=20260812-review-workflow">
 </head>
 <body class="admin-page">
   <main class="admin-shell">
@@ -14,84 +14,59 @@
 
     <section class="admin-panel">
       <div class="admin-heading">
-        <p class="admin-kicker">行動健身房巡迴車</p>
-        <h1>據點資料維護</h1>
-        <p>輸入局方提供的維護密碼後，可新增或修改據點資料。</p>
-      </div>
-
-      <div class="admin-safety-note">
-        <strong>目前網站使用 GitHub Pages 靜態部署</strong>
+        <p class="admin-kicker">高雄銀髮運動資源</p>
+        <h1>場館／據點資料新增或修改申請</h1>
         <p>
-          為避免把網站寫入權限或金鑰公開在網頁中，本工具不會直接把資料寫回公開網站。
-          完成修改後請下載更新後的 <code>venues.json</code>，交由局方覆蓋
-          <code>data/venues.json</code> 後即可更新全站。
+          運動中心、運動／體育園區及行動健身房巡迴車的承辦／聯絡人，
+          可使用局方提供的密碼提出新增或修改申請。
         </p>
       </div>
 
-      <section id="login-panel" class="admin-login">
-        <label for="admin-password">維護密碼</label>
-        <div class="admin-login-row">
-          <input id="admin-password" type="password" autocomplete="current-password" placeholder="請輸入維護密碼">
-          <button id="admin-login-btn" type="button">進入維護</button>
-        </div>
-        <p id="login-message" class="admin-message" aria-live="polite"></p>
-      </section>
+      <div class="admin-safety-note">
+        <strong>申請送出後不會直接改動網站</strong>
+        <p>
+          系統會先寄送審核通知至局方信箱，由網站管理人員檢視內容；
+          管理人員可修正申請資料後再按「確認更新」，系統才會自動更新 GitHub 網站資料。
+        </p>
+      </div>
 
-      <section id="editor-panel" hidden>
-        <div class="admin-toolbar">
-          <label>
-            選擇據點
-            <select id="record-select"></select>
-          </label>
-          <button id="new-record-btn" type="button" class="admin-secondary-btn">＋ 新增據點</button>
-        </div>
+      <div id="portal-status" class="admin-safety-note admin-config-warning" hidden>
+        <strong>審核服務尚未啟用</strong>
+        <p>
+          請網站管理人員先完成 Google Apps Script 一次性部署，
+          再將 Web App 的 <code>/exec</code> 網址填入 <code>admin-config.js</code>。
+        </p>
+      </div>
 
-        <form id="record-form" class="admin-form">
-          <input type="hidden" id="field-id">
+      <div class="admin-request-grid">
+        <a class="admin-request-card" id="prefilled-request" href="#">
+          <strong>✏️ 修改目前這筆資料</strong>
+          <span id="prefilled-name">依目前頁面帶入資料</span>
+        </a>
 
-          <div class="admin-grid">
-            <label>行政區<input id="field-district" required></label>
-            <label>車別
-              <select id="field-vehicle">
-                <option>A車</option><option>B車</option>
-              </select>
-            </label>
-            <label>據點類型
-              <select id="field-serviceType">
-                <option>一般據點</option><option>身障據點</option>
-              </select>
-            </label>
-            <label>星期<input id="field-weekday" placeholder="例如：星期一"></label>
-            <label>服務時段<input id="field-hours" placeholder="例如：09:30－11:00"></label>
-            <label>服務日期<input id="field-dates" placeholder="例如：6/22－8/24"></label>
-            <label>自動下架時間
-              <input id="field-activeUntil" type="datetime-local">
-            </label>
-            <label class="admin-span-2">運動據點<input id="field-locationName" required></label>
-            <label class="admin-span-2">運動據點地址<input id="field-address" required></label>
-            <label>提供局處<input id="field-provider"></label>
-            <label>據點聯絡人<input id="field-contactName"></label>
-            <label>報名電話<input id="field-phone" inputmode="tel"></label>
-            <label class="admin-span-2">官方網站<input id="field-officialUrl" type="url"></label>
-            <label class="admin-span-2">注意事項<textarea id="field-notes" rows="3"></textarea></label>
-          </div>
+        <a class="admin-request-card" data-new-type="sports-center" href="#">
+          <strong>🏟️ 新增運動中心</strong>
+          <span>提出新場館資料申請</span>
+        </a>
 
-          <div class="admin-form-actions">
-            <button type="submit">儲存這筆修改</button>
-            <button id="download-json-btn" type="button" class="admin-download-btn">下載更新後 venues.json</button>
-          </div>
-        </form>
+        <a class="admin-request-card" data-new-type="sports-park" href="#">
+          <strong>🏃 新增運動／體育園區</strong>
+          <span>提出新園區資料申請</span>
+        </a>
 
-        <div class="admin-status">
-          <strong>尚未下載的修改：</strong>
-          <span id="change-count">0</span> 筆
-          <p id="editor-message" class="admin-message" aria-live="polite"></p>
-        </div>
-      </section>
+        <a class="admin-request-card" data-new-type="mobile-gym" href="#">
+          <strong>🚐 新增行動健身房據點</strong>
+          <span>提出新巡迴據點資料申請</span>
+        </a>
+      </div>
+
+      <p class="admin-privacy-note">
+        此頁不保存局方密碼、Gmail 密碼或 GitHub 寫入金鑰。
+      </p>
     </section>
   </main>
 
   <script src="./admin-config.js"></script>
-  <script src="./admin.js"></script>
+  <script src="./admin.js?v=20260812-review-workflow"></script>
 </body>
 </html>

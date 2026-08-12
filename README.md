@@ -181,3 +181,14 @@
 - 當所有行動健身房據點皆到期後，「行動健身房巡迴車」分類按鈕會自動隱藏。
 - 新增 `admin.html` 據點資料維護工具：輸入維護密碼後可新增／修改行動健身房資料，並匯出更新後的 `venues.json`。
 - GitHub Pages 為純靜態網站，因此維護工具不會把寫入權限或 GitHub 金鑰放在公開前端；匯出的 `venues.json` 仍須由局方上傳至 `data/venues.json`。
+
+
+## 第十二版更新（申請－Gmail審核－自動更新）
+
+- 運動中心、運動／體育園區、行動健身房巡迴車新增「申請修改資訊」入口。
+- 申請人無法直接改公開網站；送出後先寄至 `momooooal@gmail.com` 審核。
+- Gmail 審核頁可再次修改內容，再按「確認更新網站」。
+- 核准後由 Google Apps Script 透過 GitHub API 更新 `data/venues.json`。
+- 行動健身房四個操作按鈕改為兩欄／手機一欄並允許換行，避免文字超出按鈕框。
+- 運動i臺灣「常態課程」及「系列課程」均改連到 `https://momooooal.github.io/kaohsiung-isportscourses/`。
+- 後端程式位於 `google-apps-script/`，需依 `google-apps-script/SETUP.md` 完成一次性部署後才會啟用郵件審核及自動更新。

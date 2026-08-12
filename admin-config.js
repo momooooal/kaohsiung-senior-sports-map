@@ -1,6 +1,5 @@
-// 據點資料維護工具設定
-// 本檔只存密碼的 SHA-256 雜湊，不存明碼。
-// 若要更換密碼，請重新計算 SHA-256 後替換下方值。
-window.MOBILE_GYM_ADMIN_CONFIG = {
-  passwordSha256: "c6a1d7b32cdbf59a49796d7937edee1e9017c6b0bc944a87ea13fa1ab5a4dda2"
+// 場館／據點資料新增或修改申請入口
+// 完成 Google Apps Script 部署後，把 /exec 網址貼到 portalUrl。
+window.RESOURCE_REQUEST_CONFIG = {
+  portalUrl: "https://script.google.com/macros/s/AKfycbyHuuaw054vOenYKQqFCiXw6l2aUiBadc1r2kruqPYn9zLVtqhwTds3Em3JzlVr0b_ajg/exec"
 };

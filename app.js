@@ -539,6 +539,22 @@ function renderEmpty() {
     </div>`;
 }
 
+
+/* =====================================================
+   Resource Update Request
+   ===================================================== */
+function resourceRequestUrl(item) {
+  const params = new URLSearchParams();
+  params.set('type', item?.type || '');
+  if (item?.id) params.set('id', item.id);
+  if (item?.nameZh) params.set('name', item.nameZh);
+  return `./admin.html?${params.toString()}`;
+}
+
+function resourceRequestButton(item, label = '✏️ 申請修改資訊') {
+  return `<a href="${esc(resourceRequestUrl(item))}" class="card-btn btn-request-edit">${esc(label)}</a>`;
+}
+
 /* =====================================================
    Card Rendering
    ===================================================== */
@@ -583,6 +599,9 @@ function renderVenueCard(v) {
     actions.push(`<a href="${esc(v.website)}" target="_blank" rel="noopener noreferrer" class="card-btn btn-web">🌐 官方網站</a>`);
   if (v.facebook)
     actions.push(`<a href="${esc(v.facebook)}" target="_blank" rel="noopener noreferrer" class="card-btn btn-fb">Facebook</a>`);
+
+  if (v.type === 'sports-center' || v.type === 'sports-park')
+    actions.push(resourceRequestButton(v));
 
   // Accordion items
   const accordItems = [];
@@ -713,6 +732,7 @@ function renderMobileGymCard(v) {
         <a href="${esc(officialUrl)}" target="_blank" rel="noopener noreferrer" class="card-btn btn-mobile-gym-web">
           🌐 行動健身房巡迴車官網
         </a>
+        ${resourceRequestButton(v)}
       </div>
       ${!phone ? `<p class="mobile-phone-help">目前尚無報名電話資料，請先由行動健身房巡迴車官網確認最新報名方式。</p>` : ''}
       <div class="card-actions mobile-gym-detail-action">
