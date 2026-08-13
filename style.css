@@ -795,8 +795,7 @@ button { cursor: pointer; font-family: inherit; font-size: inherit; }
 
 .btn-call-mobile-gym,
 .btn-mobile-gym-map,
-.btn-mobile-gym-web,
-.btn-request-edit {
+.btn-mobile-gym-web {
   min-width: 0;
   min-height: 54px;
   padding: .75rem .65rem;

@@ -192,3 +192,16 @@
 - 行動健身房四個操作按鈕改為兩欄／手機一欄並允許換行，避免文字超出按鈕框。
 - 運動i臺灣「常態課程」及「系列課程」均改連到 `https://momooooal.github.io/kaohsiung-isportscourses/`。
 - 後端程式位於 `google-apps-script/`，需依 `google-apps-script/SETUP.md` 完成一次性部署後才會啟用郵件審核及自動更新。
+
+
+## 第十三版更新（改回人工維護）
+
+- 移除所有「據點／場館自行新增或修改」功能。
+- 移除 Google Apps Script、Gmail 審核、GitHub API 自動更新相關程式。
+- 移除網站上的「申請修改資訊」與後台入口。
+- 後續網站資料由網站管理人員直接手動修改 GitHub 內容。
+- 保留第十二版的其他修改：
+  - 行動健身房按鈕避免文字超出框框。
+  - 行動健身房活動到期自動下架。
+  - 運動i臺灣「常態課程」與「系列課程」連到 https://momooooal.github.io/kaohsiung-isportscourses/
+  - 行動健身房地址可連 Google 地圖。
