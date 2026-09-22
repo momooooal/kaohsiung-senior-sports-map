@@ -618,6 +618,15 @@ function renderVenueCard(v) {
 }
 
 
+
+function mobileGymPhoneHref(phone) {
+  const raw = String(phone || '').trim();
+  if (!raw) return '';
+  const extMatch = raw.match(/#(\d+)$/);
+  const base = raw.replace(/#\d+$/, '').replace(/[^0-9+]/g, '');
+  return extMatch ? `${base};ext=${extMatch[1]}` : base;
+}
+
 function renderMobileGymCard(v) {
   const serviceLabel = v.serviceType === '身障據點'
     ? `${v.vehicle}－身障據點`
@@ -626,8 +635,11 @@ function renderMobileGymCard(v) {
   const detailsId = `details-${v.id}`;
   const registrationNotice = v.registrationNotice
     || `為掌握長輩運動前後測狀況，課程採事先報名制，報名請洽據點「${v.locationName || '運動據點'}」。`;
-  const phone = String(v.phone || '').trim();
-  const telHref = phone ? phone.replace(/[^0-9+]/g, '') : '';
+  const phones = Array.isArray(v.phones) && v.phones.length
+    ? v.phones.map(p => String(p || '').trim()).filter(Boolean)
+    : [String(v.phone || '').trim()].filter(Boolean);
+  const phone = phones[0] || '';
+  const telHref = phone ? mobileGymPhoneHref(phone) : '';
   const officialUrl = v.officialUrl || 'https://sports.kcg.gov.tw/EventSite/index.aspx?SiteId=d1d9d431-67a7-4921-be53-f76d96967378';
   const mapsUrl = v.mapsUrl || (v.address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.address)}`
@@ -644,10 +656,15 @@ function renderMobileGymCard(v) {
     ? `<a href="tel:${esc(telHref)}" class="card-btn btn-call-mobile-gym" aria-label="撥打 ${esc(phone)} 向 ${esc(v.locationName)} 報名">📞 撥打電話報名</a>`
     : `<span class="card-btn btn-phone-unavailable" aria-disabled="true">📞 報名電話待確認</span>`;
 
-  const phoneRow = phone
+  const phoneLinks = phones.map(p => {
+    const href = mobileGymPhoneHref(p);
+    return `<a href="tel:${esc(href)}">${esc(p)}</a>`;
+  }).join('<br>');
+
+  const phoneRow = phones.length
     ? `<div class="mobile-schedule-row mobile-phone-row">
          <span class="mobile-schedule-label">報名電話</span>
-         <strong><a href="tel:${esc(telHref)}">${esc(phone)}</a></strong>
+         <strong>${phoneLinks}</strong>
        </div>`
     : `<div class="mobile-schedule-row mobile-phone-row mobile-phone-pending">
          <span class="mobile-schedule-label">報名電話</span>
