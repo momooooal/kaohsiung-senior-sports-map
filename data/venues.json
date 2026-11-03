@@ -209,14 +209,14 @@
   {
     "id": "cianjhen-sports-center",
     "type": "sports-center",
-    "status": "暫時歇業",
+    "status": "營運中",
     "district": "前鎮區",
     "nameZh": "高雄市前鎮運動中心",
     "nameEn": "Kaohsiung City Cianjhen Sports Center",
     "address": "高雄市前鎮區班超路63號",
     "phone": "07-8152271",
     "hours": "",
-    "summary": "利用瑞祥高中活動中心設置，原有游泳池、健身房、韻律教室及綜合球場；市府高齡友善資訊仍標示暫時歇業。",
+    "summary": "位於瑞祥高中活動中心，設有室內游泳池、健身房、韻律教室及綜合球場等運動設施；配合營運廠商異動，於115年3月重新開放營運。",
     "facilities": [
       "室內游泳池",
       "健身房",
@@ -230,7 +230,7 @@
     "facebook": "https://www.facebook.com/share/1GkBEygZwv/",
     "instagram": "",
     "line": "",
-    "notes": "高雄市政府高齡友善資訊專區註記：自114年9月24日起暫時歇業。尚未查得正式復業公告；前往前請向主管機關或場館確認，勿直接視為正常開放。"
+    "notes": "依高雄市政府運動發展局115年3月議會業務報告，前鎮運動中心於115年3月重新開放營運。實際開放時間、課程及場地使用資訊，請依場館最新公告確認。"
   },
   {
     "id": "meinong-sports-center",
